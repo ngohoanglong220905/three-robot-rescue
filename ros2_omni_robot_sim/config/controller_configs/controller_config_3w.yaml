@@ -1,0 +1,33 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    wheel1_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel2_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel3_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    camera_servo_controller:
+      type: position_controllers/JointGroupPositionController
+
+wheel1_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_1
+
+wheel2_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_2
+
+wheel3_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_3
+
+camera_servo_controller:
+  ros__parameters:
+    joints:
+      - main_camera_bracket_joint

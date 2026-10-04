@@ -1,0 +1,152 @@
+Panels:
+  - Class: rviz_common/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Global Options1
+        - /Map1
+        - /D Lite Path1
+        - /Robot 1 Path1
+        - /Robot 2 Path1
+        - /Robot 3 Path1
+        - /Robot Positions1
+      Splitter Ratio: 0.52
+    Tree Height: 650
+  - Class: rviz_common/Selection
+    Name: Selection
+  - Class: rviz_common/Tool Properties
+    Name: Tool Properties
+    Splitter Ratio: 0.55
+  - Class: rviz_common/Views
+    Name: Views
+    Splitter Ratio: 0.5
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.82
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 1
+        Durability Policy: Transient Local
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Enabled: true
+      Head Diameter: 0.12
+      Head Length: 0.16
+      Length: 0.3
+      Line Style: Lines
+      Line Width: 0.035
+      Name: D* Lite Path
+      Pose Style: None
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /dstar_lite/path
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Color: 255; 65; 55
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.025
+      Name: Robot 1 Path
+      Pose Style: None
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot1/desired_path
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Color: 50; 155; 255
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.025
+      Name: Robot 2 Path
+      Pose Style: None
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot2/desired_path
+      Value: true
+    - Class: rviz_default_plugins/Path
+      Color: 55; 220; 100
+      Enabled: true
+      Line Style: Lines
+      Line Width: 0.025
+      Name: Robot 3 Path
+      Pose Style: None
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /robot3/desired_path
+      Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Robot Positions
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /three_robot_dstar_mpc/markers
+      Value: true
+    - Alpha: 0.35
+      Class: rviz_default_plugins/Grid
+      Color: 125; 125; 135
+      Enabled: true
+      Line Style:
+        Line Width: 0.02
+        Value: Lines
+      Name: Grid
+      Plane: XY
+      Plane Cell Count: 20
+      Reference Frame: <Fixed Frame>
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 35; 38; 45
+    Fixed Frame: map
+    Frame Rate: 30
+  Tools:
+    - Class: rviz_default_plugins/Interact
+      Hide Inactive Objects: true
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+    - Class: rviz_default_plugins/SetInitialPose
+      Topic:
+        Value: /initialpose
+    - Class: rviz_default_plugins/SetGoal
+      Topic:
+        Value: /goal_pose
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 13
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+      Name: Current View
+      Pitch: 1.5708
+      Yaw: 0.7854
+      Value: Orbit (rviz)
+    Saved: ~
+  Window Geometry:
+    Height: 900
+    Width: 1400

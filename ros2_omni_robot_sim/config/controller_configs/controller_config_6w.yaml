@@ -1,0 +1,47 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 50
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    wheel1_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel2_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel3_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel4_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel5_controller:
+      type: velocity_controllers/JointGroupVelocityController
+    wheel6_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+wheel1_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_1
+
+wheel2_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_2
+
+wheel3_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_3
+      
+wheel4_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_4
+      
+wheel5_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_5
+      
+wheel6_controller:
+  ros__parameters:
+    joints:
+      - omni_wheel_joint_6

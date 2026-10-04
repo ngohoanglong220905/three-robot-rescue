@@ -1,0 +1,281 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <world name="my_maze">
+
+    <!-- Define the core Gazebo systems explicitly. The physics system lets
+         spawned robots settle and collide with the floor; SceneBroadcaster
+         publishes the world to the Gazebo GUI. -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="ignition-gazebo-physics-system"
+            name="gz::sim::systems::Physics"/>
+    <plugin filename="ignition-gazebo-user-commands-system"
+            name="gz::sim::systems::UserCommands"/>
+    <plugin filename="ignition-gazebo-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster"/>
+    <plugin filename="ignition-gazebo-contact-system"
+            name="gz::sim::systems::Contact"/>
+
+    <!-- Keep the world self-contained: robots must have a floor even when
+         Gazebo Fuel is offline or its model download is delayed. -->
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.5 0.1 -0.9</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>100 100</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.75 0.75 0.75 1</ambient>
+            <diffuse>0.85 0.85 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Load one sensor renderer for all three robots instead of creating
+         one Ogre2 rendering context per robot model. -->
+    <plugin filename="libgz-sim-sensors-system.so"
+            name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin filename="libgz-sim-imu-system.so"
+            name="gz::sim::systems::Imu"/>
+
+    <!-- ==================== HỆ THỐNG TƯỜNG MÊ CUNG (MAZE WALLS) ==================== -->
+
+    <!-- Tường dọc 1 (Tạo hành lang bên phải góc xuất phát) -->
+    
+
+    <!-- Tường ngang 1 (Ngăn khu vực dưới bên phải) -->
+    
+
+    <!-- Tường dọc trung tâm (Phân chia khu vực giữa) -->
+    <model name="maze_wall_3">
+      <static>true</static>
+      <pose>0.0 -0.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 4.8 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.2 4.8 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tường ngang trung tâm - bên trái -->
+    <model name="maze_wall_4">
+      <static>true</static>
+      <pose>-2.5 0.0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>3.0 0.2 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>3.0 0.2 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tường dọc tây-nam (Tạo ngách hẹp bên trái) -->
+    <model name="maze_wall_5">
+      <static>true</static>
+      <pose>-2.5 -2.8 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 2.6 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.2 2.6 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tường ngang đông-bắc (Tạo rẽ nhánh phía trên bên phải) -->
+    <model name="maze_wall_6">
+      <static>true</static>
+      <pose>2.2 1.8 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>2.6 0.2 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>2.6 0.2 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tường dọc đông-bắc (Tạo khe hẹp ngoằn ngoèo) -->
+    <model name="maze_wall_7">
+      <static>true</static>
+      <pose>1.0 3.2 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>0.2 2.8 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>0.2 2.8 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tường ngang tây-bắc (Tạo mê cung phía trên bên trái) -->
+    <model name="maze_wall_8">
+      <static>true</static>
+      <pose>-2.0 2.5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>2.2 0.2 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>2.2 0.2 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Tường ziczac phụ tạo ngõ cụt -->
+    <model name="maze_wall_9">
+      <static>true</static>
+      <pose>-1.2 -1.8 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c"><geometry><box><size>1.6 0.2 1.0</size></box></geometry></collision>
+        <visual name="v">
+          <geometry><box><size>1.6 0.2 1.0</size></box></geometry>
+          <material><ambient>0.3 0.3 0.3 1</ambient><diffuse>0.5 0.5 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ==================== DENSE OBSTACLES (CHƯỚNG NGẠI VẬT) ==================== -->
+
+    <!-- Hộp đỏ 1 (Trong hành lang góc dưới bên phải) -->
+   
+
+    <!-- Trụ xanh dương 1 (Góc dưới giữa) -->
+    <model name="obs_blue_cyl_1">
+      <static>true</static>
+      <pose>1.0 -4.0 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><cylinder><radius>0.3</radius><length>0.8</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.3</radius><length>0.8</length></cylinder></geometry>
+          <material><ambient>0.2 0.2 0.8 1</ambient><diffuse>0.2 0.2 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Hộp cam (Hành lang bên trái) -->
+    <model name="obs_orange_box">
+      <static>true</static>
+      <pose>-3.8 -1.2 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.6 0.6 0.8</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.6 0.6 0.8</size></box></geometry>
+          <material><ambient>0.9 0.5 0.1 1</ambient><diffuse>0.9 0.5 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Trụ xanh lá 1 (Tạo khe hẹp trung tâm) -->
+    <model name="obs_green_cyl_1">
+      <static>true</static>
+      <pose>-1.0 0.8 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><cylinder><radius>0.3</radius><length>0.8</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.3</radius><length>0.8</length></cylinder></geometry>
+          <material><ambient>0.2 0.8 0.2 1</ambient><diffuse>0.2 0.8 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Hộp tím (Phân nhánh phía trên bên trái) -->
+    <model name="obs_purple_box">
+      <static>true</static>
+      <pose>-3.6 3.5 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.6 0.6 0.8</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.6 0.6 0.8</size></box></geometry>
+          <material><ambient>0.7 0.2 0.7 1</ambient><diffuse>0.7 0.2 0.7 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Trụ vàng (Khu vực trên cùng giữa) -->
+    <model name="obs_yellow_cyl">
+      <static>true</static>
+      <pose>-0.8 3.8 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><cylinder><radius>0.3</radius><length>0.8</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.3</radius><length>0.8</length></cylinder></geometry>
+          <material><ambient>0.9 0.9 0.1 1</ambient><diffuse>0.9 0.9 0.1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Trụ lục bảo (Khu vực phía trên bên phải) -->
+    <model name="obs_cyan_cyl">
+      <static>true</static>
+      <pose>3.2 3.5 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><cylinder><radius>0.35</radius><length>0.8</length></cylinder></geometry></collision>
+        <visual name="vis">
+          <geometry><cylinder><radius>0.35</radius><length>0.8</length></cylinder></geometry>
+          <material><ambient>0.1 0.8 0.8 1</ambient><diffuse>0.1 0.8 0.8 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Hộp xám (Lên từ ngách xuất phát) -->
+    <model name="obs_grey_box">
+      <static>true</static>
+      <pose>1.2 0.2 0.4 0 0 0</pose>
+      <link name="link">
+        <collision name="col"><geometry><box><size>0.5 0.7 0.8</size></box></geometry></collision>
+        <visual name="vis">
+          <geometry><box><size>0.5 0.7 0.8</size></box></geometry>
+          <material><ambient>0.6 0.6 0.6 1</ambient><diffuse>0.6 0.6 0.6 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ==================== TƯỜNG BAO BẢN ĐỒ (10m x 10m) ==================== -->
+    <model name="outer_boundary">
+      <static>true</static>
+      <pose>0 0 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="c_n"><pose>0 5 0 0 0 0</pose><geometry><box><size>10 0.2 1</size></box></geometry></collision>
+        <visual name="v_n"><pose>0 5 0 0 0 0</pose><geometry><box><size>10 0.2 1</size></box></geometry></visual>
+        
+        <collision name="c_s"><pose>0 -5 0 0 0 0</pose><geometry><box><size>10 0.2 1</size></box></geometry></collision>
+        <visual name="v_s"><pose>0 -5 0 0 0 0</pose><geometry><box><size>10 0.2 1</size></box></geometry></visual>
+        
+        <collision name="c_e"><pose>5 0 0 0 0 0</pose><geometry><box><size>0.2 10 1</size></box></geometry></collision>
+        <visual name="v_e"><pose>5 0 0 0 0 0</pose><geometry><box><size>0.2 10 1</size></box></geometry></visual>
+        
+        <collision name="c_w"><pose>-5 0 0 0 0 0</pose><geometry><box><size>0.2 10 1</size></box></geometry></collision>
+        <visual name="v_w"><pose>-5 0 0 0 0 0</pose><geometry><box><size>0.2 10 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

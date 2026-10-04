@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot name="simple_robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Prefix robot1 / robot2 / robot3 -->
+  <xacro:arg name="robot_prefix" default="robot1"/>
+
+  <!-- Chỉ dùng phần robot body + sensor -->
+  <xacro:include
+      filename="$(find ros2_omni_robot_sim)/urdf/3w_v2_multi/base_link.urdf.xacro" />
+
+  <!-- Base footprint -->
+  <link name="base_footprint" />
+
+  <!-- Robot -->
+  <xacro:base_link
+      parent="base_footprint"
+      xyz="0 0 0"
+      rpy="0 0 0"
+      prefix="$(arg robot_prefix)" />
+
+</robot>
+
