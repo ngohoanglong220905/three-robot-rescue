@@ -1,0 +1,80 @@
+# ============================================================
+# Gazebo -> ROS 2 bridge
+# 3 Omni Robots
+# ============================================================
+
+# ------------------------------------------------------------
+# CLOCK
+# ------------------------------------------------------------
+- ros_topic_name: "clock"
+  gz_topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# Gazebo ground-truth model poses use the same world coordinates as my_maze.
+- ros_topic_name: "/robot1/gazebo_pose"
+  gz_topic_name: "/model/robot1/pose"
+  ros_type_name: "geometry_msgs/msg/Pose"
+  gz_type_name: "ignition.msgs.Pose"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot2/gazebo_pose"
+  gz_topic_name: "/model/robot2/pose"
+  ros_type_name: "geometry_msgs/msg/Pose"
+  gz_type_name: "ignition.msgs.Pose"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot3/gazebo_pose"
+  gz_topic_name: "/model/robot3/pose"
+  ros_type_name: "geometry_msgs/msg/Pose"
+  gz_type_name: "ignition.msgs.Pose"
+  direction: GZ_TO_ROS
+
+# ============================================================
+# ROBOT 1
+# ============================================================
+
+- ros_topic_name: "/robot1/imu"
+  gz_topic_name: "/robot1/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot1/scan"
+  gz_topic_name: "/robot1/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# ============================================================
+# ROBOT 2
+# ============================================================
+
+- ros_topic_name: "/robot2/imu"
+  gz_topic_name: "/robot2/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot2/scan"
+  gz_topic_name: "/robot2/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# ============================================================
+# ROBOT 3
+# ============================================================
+
+- ros_topic_name: "/robot3/imu"
+  gz_topic_name: "/robot3/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot3/scan"
+  gz_topic_name: "/robot3/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS

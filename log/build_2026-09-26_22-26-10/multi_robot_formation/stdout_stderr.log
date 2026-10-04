@@ -1,0 +1,36 @@
+running develop
+Removing /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi-robot-formation.egg-link (link to .)
+running egg_info
+writing ../build/multi_robot_formation/multi_robot_formation.egg-info/PKG-INFO
+writing dependency_links to ../build/multi_robot_formation/multi_robot_formation.egg-info/dependency_links.txt
+writing entry points to ../build/multi_robot_formation/multi_robot_formation.egg-info/entry_points.txt
+writing requirements to ../build/multi_robot_formation/multi_robot_formation.egg-info/requires.txt
+writing top-level names to ../build/multi_robot_formation/multi_robot_formation.egg-info/top_level.txt
+reading manifest file '../build/multi_robot_formation/multi_robot_formation.egg-info/SOURCES.txt'
+writing manifest file '../build/multi_robot_formation/multi_robot_formation.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/long/ros2_ws/build/multi_robot_formation/build
+creating /home/long/ros2_ws/build/multi_robot_formation/build/lib
+creating /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+copying multi_robot_formation/__init__.py -> /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+copying multi_robot_formation/formation_pid_node.py -> /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+copying multi_robot_formation/virtual_structure_node.py -> /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+running install
+running install_lib
+creating /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+copying /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation/__init__.py -> /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+copying /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation/formation_pid_node.py -> /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+copying /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation/virtual_structure_node.py -> /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+byte-compiling /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation/formation_pid_node.py to formation_pid_node.cpython-310.pyc
+byte-compiling /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation/virtual_structure_node.py to virtual_structure_node.cpython-310.pyc
+running install_data
+copying resource/multi_robot_formation -> /home/long/ros2_ws/install/multi_robot_formation/share/ament_index/resource_index/packages
+copying package.xml -> /home/long/ros2_ws/install/multi_robot_formation/share/multi_robot_formation
+running install_egg_info
+Copying ../build/multi_robot_formation/multi_robot_formation.egg-info to /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation-0.0.1-py3.10.egg-info
+running install_scripts
+Installing formation_pid_node script to /home/long/ros2_ws/install/multi_robot_formation/lib/multi_robot_formation
+Installing virtual_structure_node script to /home/long/ros2_ws/install/multi_robot_formation/lib/multi_robot_formation
+writing list of installed files to '/home/long/ros2_ws/build/multi_robot_formation/install.log'

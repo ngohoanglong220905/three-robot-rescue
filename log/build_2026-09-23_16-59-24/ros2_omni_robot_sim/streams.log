@@ -1,0 +1,200 @@
+[0.011s] Invoking command in '/home/long/ros2_ws/build/ros2_omni_robot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/long/ros2_ws/ros2_omni_robot_sim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/long/ros2_ws/install/ros2_omni_robot_sim
+[0.110s] -- The C compiler identification is GNU 11.4.0
+[0.186s] -- The CXX compiler identification is GNU 11.4.0
+[0.194s] -- Detecting C compiler ABI info
+[0.258s] -- Detecting C compiler ABI info - done
+[0.265s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.266s] -- Detecting C compile features
+[0.267s] -- Detecting C compile features - done
+[0.271s] -- Detecting CXX compiler ABI info
+[0.333s] -- Detecting CXX compiler ABI info - done
+[0.337s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.337s] -- Detecting CXX compile features
+[0.337s] -- Detecting CXX compile features - done
+[0.348s] -- Found ament_cmake: 1.3.14 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.457s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.505s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.533s] -- Found rclcpp: 16.0.19 (/opt/ros/humble/share/rclcpp/cmake)
+[0.573s] -- Found rosidl_generator_c: 3.1.9 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.576s] -- Found rosidl_adapter: 3.1.9 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.583s] -- Found rosidl_generator_cpp: 3.1.9 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.595s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.609s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.645s] -- Found rmw_implementation_cmake: 6.1.3 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.647s] -- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.735s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.762s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.790s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.804s] -- Looking for pthread.h
+[0.877s] -- Looking for pthread.h - found
+[0.878s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.937s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[0.938s] -- Found Threads: TRUE  
+[0.983s] -- Found geometry_msgs: 4.9.2 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.994s] -- Found nav_msgs: 4.9.2 (/opt/ros/humble/share/nav_msgs/cmake)
+[1.007s] -- Found sensor_msgs: 4.9.2 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.027s] -- Found tf2: 0.25.22 (/opt/ros/humble/share/tf2/cmake)
+[1.036s] -- Found tf2_ros: 0.25.22 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.097s] -- Found tf2_geometry_msgs: 0.25.22 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.107s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.109s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.109s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.113s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.172s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.172s] -- Configured cppcheck include dirs: 
+[1.172s] -- Configured cppcheck exclude dirs and/or files: 
+[1.173s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.174s] -- Added test 'lint_cmake' to check CMake code style
+[1.174s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.178s] -- Added test 'uncrustify' to check C / C++ code style
+[1.178s] -- Configured uncrustify additional arguments: 
+[1.179s] -- Added test 'xmllint' to check XML markup files
+[1.180s] -- Configuring done
+[1.187s] -- Generating done
+[1.190s] -- Build files have been written to: /home/long/ros2_ws/build/ros2_omni_robot_sim
+[1.198s] Invoked command in '/home/long/ros2_ws/build/ros2_omni_robot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/long/ros2_ws/ros2_omni_robot_sim -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/long/ros2_ws/install/ros2_omni_robot_sim
+[1.199s] Invoking command in '/home/long/ros2_ws/build/ros2_omni_robot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/long/ros2_ws/build/ros2_omni_robot_sim -- -j16 -l16
+[1.240s] [ 25%] [32mBuilding CXX object CMakeFiles/test_cpp_publisher.dir/src/test_publisher.cpp.o[0m
+[1.241s] [ 50%] [32mBuilding CXX object CMakeFiles/kinematics.dir/src/kinematics.cpp.o[0m
+[3.862s] [ 75%] [32m[1mLinking CXX executable test_cpp_publisher[0m
+[3.979s] [ 75%] Built target test_cpp_publisher
+[14.891s] [100%] [32m[1mLinking CXX executable kinematics[0m
+[15.526s] [100%] Built target kinematics
+[15.535s] Invoked command in '/home/long/ros2_ws/build/ros2_omni_robot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/long/ros2_ws/build/ros2_omni_robot_sim -- -j16 -l16
+[15.543s] Invoking command in '/home/long/ros2_ws/build/ros2_omni_robot_sim': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/long/ros2_ws/build/ros2_omni_robot_sim
+[15.549s] -- Install configuration: ""
+[15.550s] -- Execute custom install script
+[15.550s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/test_cpp_publisher
+[15.559s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/kinematics
+[15.564s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/gazebo_sim.launch.py
+[15.569s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/nav2.launch.py
+[15.578s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/navigation_gazebo_sim.launch.py
+[15.583s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/slam_gazebo_sim.launch.py
+[15.591s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/IMU/IMU.gazebo.xacro
+[15.597s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/IMU/IMU.urdf.xacro
+[15.604s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base/base.gazebo.xacro
+[15.610s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base/base.urdf.xacro
+[15.615s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base_layer/base_layer.gazebo.xacro
+[15.621s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base_layer/base_layer.urdf.xacro
+[15.628s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera/camera.gazebo.xacro
+[15.632s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera/camera.urdf.xacro
+[15.639s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera_bracket/camera_bracket.gazebo.xacro
+[15.645s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera_bracket/camera_bracket.transmission.xacro
+[15.649s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera_bracket/camera_bracket.urdf.xacro
+[15.655s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/gazebo_plugins.urdf.xacro
+[15.662s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/laser/laser.gazebo.xacro
+[15.667s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/laser/laser.urdf.xacro
+[15.674s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/main.urdf.xacro
+[15.681s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/omni_wheel/omni_wheel.gazebo.xacro
+[15.688s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/omni_wheel/omni_wheel.transmission.xacro
+[15.695s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/omni_wheel/omni_wheel.urdf.xacro
+[15.700s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/roller/roller.gazebo.xacro
+[15.707s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/roller/roller.transmission.xacro
+[15.713s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/roller/roller.urdf.xacro
+[15.720s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/ros2_control.urdf.xacro
+[15.726s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/base_link.urdf.xacro
+[15.732s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/camera.urdf.xacro
+[15.738s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/gazebo_plugins.urdf.xacro
+[15.745s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/imu.urdf.xacro
+[15.752s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/lidar.urdf.xacro
+[15.758s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/main.urdf.xacro
+[15.763s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/omni_wheel.urdf.xacro
+[15.770s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/roller.urdf.xacro
+[15.777s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/ros2_control.urdf.xacro
+[15.783s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/base_link.urdf.xacro
+[15.790s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/camera.urdf.xacro
+[15.796s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/gazebo_plugins.urdf.xacro
+[15.802s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/imu.urdf.xacro
+[15.816s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/lidar.urdf.xacro
+[15.822s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/main.urdf.xacro
+[15.828s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/omni_wheel.urdf.xacro
+[15.835s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/roller.urdf.xacro
+[15.842s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/ros2_control.urdf.xacro
+[15.847s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/base_link.urdf.xacro
+[15.853s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/camera.urdf.xacro
+[15.859s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/gazebo_plugins.urdf.xacro
+[15.864s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/imu.urdf.xacro
+[15.872s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/lidar.urdf.xacro
+[15.878s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/main.urdf.xacro
+[15.885s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/omni_wheel.urdf.xacro
+[15.891s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/roller.urdf.xacro
+[15.896s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/ros2_control.urdf.xacro
+[15.903s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/base_link.urdf.xacro
+[15.908s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/camera.urdf.xacro
+[15.915s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/gazebo_plugins.urdf.xacro
+[15.922s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/imu.urdf.xacro
+[15.928s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/lidar.urdf.xacro
+[15.934s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/main.urdf.xacro
+[15.940s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/omni_wheel.urdf.xacro
+[15.945s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/roller.urdf.xacro
+[15.952s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/ros2_control.urdf.xacro
+[15.957s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/gz_sim.rviz
+[15.961s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/navigation.rviz
+[15.968s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/slam.rviz
+[15.973s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/test.rviz
+[15.979s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//worlds/maze1.sdf
+[15.986s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//worlds/maze2.sdf
+[15.992s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/base_link.dae
+[15.999s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/base_link.stl
+[16.006s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/camera.stl
+[16.012s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/omni_frame.stl
+[16.019s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/roller.stl
+[16.023s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/base_link.dae
+[16.029s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/base_link.stl
+[16.036s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/camera.stl
+[16.042s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/omni_frame.stl
+[16.048s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/roller.stl
+[16.055s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/base_link.dae
+[16.060s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/base_link.stl
+[16.066s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/camera.stl
+[16.072s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/omni_frame.stl
+[16.078s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/roller.stl
+[16.086s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/base_link.dae
+[16.093s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/base_link.stl
+[16.106s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/camera.stl
+[16.114s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/omni_frame.stl
+[16.119s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/roller.stl
+[16.124s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/IMU/IMU_sensor.dae
+[16.130s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/base/omni_wheel_body.dae
+[16.135s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/base/omni_wheel_body_old.dae
+[16.140s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/camera/camera.dae
+[16.146s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/camera_bracket/camera_bracket.dae
+[16.152s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/omni_wheel/omni_wheel.dae
+[16.157s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/roller/omni_roller.dae
+[16.164s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/IMU/IMU_SENSOR.stl
+[16.169s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/base/base_link.stl
+[16.176s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/base/base_link_old.stl
+[16.185s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/camera/camera.stl
+[16.191s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/camera_bracket/camera_bracket.stl
+[16.198s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/omni_wheel/omni_wheel.stl
+[16.204s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/roller/roller.stl
+[16.210s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_3w.yaml
+[16.216s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_3w_v2.yaml
+[16.220s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_4w.yaml
+[16.226s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_5w.yaml
+[16.232s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_6w.yaml
+[16.236s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/gz_bridge/gz_bridge.yaml
+[16.242s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/nav2_params.yaml
+[16.248s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze1.pgm
+[16.252s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze1.yaml
+[16.258s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze2.pgm
+[16.264s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze2.yaml
+[16.268s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ament_index/resource_index/package_run_dependencies/ros2_omni_robot_sim
+[16.275s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ament_index/resource_index/parent_prefix_path/ros2_omni_robot_sim
+[16.283s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/ament_prefix_path.sh
+[16.289s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/ament_prefix_path.dsv
+[16.297s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/path.sh
+[16.304s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/path.dsv
+[16.310s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.bash
+[16.315s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.sh
+[16.321s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.zsh
+[16.328s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.dsv
+[16.333s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/package.dsv
+[16.339s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ament_index/resource_index/packages/ros2_omni_robot_sim
+[16.345s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/cmake/ros2_omni_robot_simConfig.cmake
+[16.350s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/cmake/ros2_omni_robot_simConfig-version.cmake
+[16.356s] -- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/package.xml
+[16.361s] -- Up-to-date: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim
+[16.361s] -- Installing: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/test_run_motor.py
+[16.361s] -- Installing: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/test_subscriber.py
+[16.362s] Invoked command in '/home/long/ros2_ws/build/ros2_omni_robot_sim' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/long/ros2_ws/build/ros2_omni_robot_sim

@@ -1,0 +1,21 @@
+running egg_info
+writing ../build/astar_planner/astar_planner.egg-info/PKG-INFO
+writing dependency_links to ../build/astar_planner/astar_planner.egg-info/dependency_links.txt
+writing entry points to ../build/astar_planner/astar_planner.egg-info/entry_points.txt
+writing requirements to ../build/astar_planner/astar_planner.egg-info/requires.txt
+writing top-level names to ../build/astar_planner/astar_planner.egg-info/top_level.txt
+reading manifest file '../build/astar_planner/astar_planner.egg-info/SOURCES.txt'
+writing manifest file '../build/astar_planner/astar_planner.egg-info/SOURCES.txt'
+running build
+running build_py
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages/astar_planner-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../build/astar_planner/astar_planner.egg-info to /home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages/astar_planner-0.0.0-py3.10.egg-info
+running install_scripts
+Installing astar_node script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+Installing pid_follower script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+Installing virtual_structure script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+writing list of installed files to '/home/long/ros2_ws/build/astar_planner/install.log'

@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <gazebo>
+
+    <!-- Publish the model's world pose so RViz and the planner can use the
+         same coordinates as the Gazebo world whenever simulation is running. -->
+    <plugin
+      filename="ignition-gazebo-pose-publisher-system"
+      name="gz::sim::systems::PosePublisher">
+      <publish_model_pose>true</publish_model_pose>
+      <publish_link_pose>false</publish_link_pose>
+      <topic>/model/$(arg robot_prefix)/pose</topic>
+      <update_frequency>30</update_frequency>
+    </plugin>
+
+    <plugin
+      filename="gz_ros2_control-system"
+      name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>
+        $(find ros2_omni_robot_sim)/config/controller_configs/controller_config_3w_v2_3robots.yaml
+      </parameters>
+      <ros>
+        <namespace>$(arg robot_prefix)</namespace>
+      </ros>
+    </plugin>
+  </gazebo>
+
+</robot>

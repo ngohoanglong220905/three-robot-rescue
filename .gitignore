@@ -1,8 +1,2 @@
-build/
-install/
-log/
-.codex_backups/
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.vscode/
+# Full ros2_ws workspace snapshot: generated files and backups are included.
+# Git metadata is managed separately.

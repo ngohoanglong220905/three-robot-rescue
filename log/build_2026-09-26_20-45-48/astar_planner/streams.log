@@ -1,0 +1,23 @@
+[0.353s] Invoking command in '/home/long/ros2_ws/astar_planner': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/astar_planner build --build-base /home/long/ros2_ws/build/astar_planner/build install --record /home/long/ros2_ws/build/astar_planner/install.log --install-scripts $base/lib/astar_planner --single-version-externally-managed install_data
+[0.482s] running egg_info
+[0.482s] writing ../build/astar_planner/astar_planner.egg-info/PKG-INFO
+[0.482s] writing dependency_links to ../build/astar_planner/astar_planner.egg-info/dependency_links.txt
+[0.482s] writing entry points to ../build/astar_planner/astar_planner.egg-info/entry_points.txt
+[0.482s] writing requirements to ../build/astar_planner/astar_planner.egg-info/requires.txt
+[0.483s] writing top-level names to ../build/astar_planner/astar_planner.egg-info/top_level.txt
+[0.483s] reading manifest file '../build/astar_planner/astar_planner.egg-info/SOURCES.txt'
+[0.484s] writing manifest file '../build/astar_planner/astar_planner.egg-info/SOURCES.txt'
+[0.484s] running build
+[0.484s] running build_py
+[0.484s] running install
+[0.484s] running install_lib
+[0.485s] running install_data
+[0.485s] running install_egg_info
+[0.486s] removing '/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages/astar_planner-0.0.0-py3.10.egg-info' (and everything under it)
+[0.487s] Copying ../build/astar_planner/astar_planner.egg-info to /home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages/astar_planner-0.0.0-py3.10.egg-info
+[0.487s] running install_scripts
+[0.498s] Installing astar_node script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[0.498s] Installing pid_follower script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[0.499s] Installing virtual_structure script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[0.499s] writing list of installed files to '/home/long/ros2_ws/build/astar_planner/install.log'
+[0.511s] Invoked command in '/home/long/ros2_ws/astar_planner' returned '0': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/astar_planner build --build-base /home/long/ros2_ws/build/astar_planner/build install --record /home/long/ros2_ws/build/astar_planner/install.log --install-scripts $base/lib/astar_planner --single-version-externally-managed install_data

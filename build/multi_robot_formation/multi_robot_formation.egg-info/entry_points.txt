@@ -1,0 +1,4 @@
+[console_scripts]
+formation_pid_node = multi_robot_formation.formation_pid_node:main
+virtual_structure_node = multi_robot_formation.virtual_structure_node:main
+

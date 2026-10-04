@@ -1,0 +1,129 @@
+[0.183s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install', '--packages-select', 'astar_planner']
+[0.183s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['astar_planner'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7ee6c50f3dc0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7ee6c52296c0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7ee6c52296c0>>)
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.364s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/long/ros2_ws'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.365s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.379s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extension 'ignore'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extension 'ignore_ament_install'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extensions ['colcon_pkg']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extension 'colcon_pkg'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extensions ['colcon_meta']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extension 'colcon_meta'
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extensions ['ros']
+[0.380s] Level 1:colcon.colcon_core.package_identification:_identify(astar_planner) by extension 'ros'
+[0.384s] DEBUG:colcon.colcon_core.package_identification:Package 'astar_planner' with type 'ros.ament_python' and name 'astar_planner'
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.384s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extensions ['ignore', 'ignore_ament_install']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extension 'ignore'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extension 'ignore_ament_install'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extensions ['colcon_pkg']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extension 'colcon_pkg'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extensions ['colcon_meta']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extension 'colcon_meta'
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extensions ['ros']
+[0.385s] Level 1:colcon.colcon_core.package_identification:_identify(ros2_omni_robot_sim) by extension 'ros'
+[0.386s] DEBUG:colcon.colcon_core.package_identification:Package 'ros2_omni_robot_sim' with type 'ros.ament_cmake' and name 'ros2_omni_robot_sim'
+[0.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.386s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.424s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'ros2_omni_robot_sim' in 'ros2_omni_robot_sim'
+[0.431s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.431s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.435s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 384 installed packages in /opt/ros/humble
+[0.437s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'cmake_args' from command line to 'None'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'cmake_target' from command line to 'None'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.497s] Level 5:colcon.colcon_core.verb:set package 'astar_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.497s] DEBUG:colcon.colcon_core.verb:Building package 'astar_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/long/ros2_ws/build/astar_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/long/ros2_ws/install/astar_planner', 'merge_install': False, 'path': '/home/long/ros2_ws/astar_planner', 'symlink_install': True, 'test_result_base': None}
+[0.497s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.498s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.499s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/long/ros2_ws/astar_planner' with build type 'ament_python'
+[0.499s] Level 1:colcon.colcon_core.shell:create_environment_hook('astar_planner', 'ament_prefix_path')
+[0.504s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.504s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/long/ros2_ws/install/astar_planner/share/astar_planner/hook/ament_prefix_path.ps1'
+[0.506s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/long/ros2_ws/install/astar_planner/share/astar_planner/hook/ament_prefix_path.dsv'
+[0.508s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/long/ros2_ws/install/astar_planner/share/astar_planner/hook/ament_prefix_path.sh'
+[0.509s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.509s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.819s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/long/ros2_ws/astar_planner'
+[0.820s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.820s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.381s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools commands: saveopts, clean, easy_install, extract_messages, bdist_rpm, install_scripts, build_py, compile_catalog, build_ext, sdist, upload_docs, install_data, build_scripts, bdist, register, update_catalog, egg_info, develop, install, rotate, upload, bdist_dumb, symlink_data, check, install_egg_info, setopt, build, bdist_egg, dist_info, install_lib, build_clib, test, init_catalog, install_headers, alias
+[1.698s] DEBUG:colcon.colcon_core.task.python.build:Available setuptools 'develop' options: --index-url, --version, --egg-path, --zip-ok, --no-find-links, --uninstall, --install-dir, --script-dir, --verbose, --allow-hosts, --help, --no-deps, --user, --record, --upgrade, --multi-version, --always-copy, --no-user-cfg, --find-links, --dry-run, --build-directory, --force-installation-into-system-dir, --prefix, --optimize, --exclude-scripts, --site-dirs, --install-layout, --local-snapshots-ok, --editable, --quiet, --always-unzip
+[1.702s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/long/ros2_ws/build/astar_planner': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/long/ros2_ws/build/astar_planner/build --no-deps symlink_data
+[2.310s] Level 1:colcon.colcon_core.shell:create_environment_hook('astar_planner', 'pythonpath_develop')
+[2.311s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/long/ros2_ws/build/astar_planner/share/astar_planner/hook/pythonpath_develop.ps1'
+[2.312s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/long/ros2_ws/build/astar_planner' returned '0': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/long/ros2_ws/build/astar_planner/build --no-deps symlink_data
+[2.313s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/long/ros2_ws/build/astar_planner/share/astar_planner/hook/pythonpath_develop.dsv'
+[2.313s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/long/ros2_ws/build/astar_planner/share/astar_planner/hook/pythonpath_develop.sh'
+[2.317s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner' for CMake module files
+[2.317s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner' for CMake config files
+[2.318s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner/lib'
+[2.318s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner/bin'
+[2.318s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner/lib/pkgconfig/astar_planner.pc'
+[2.318s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages'
+[2.318s] Level 1:colcon.colcon_core.shell:create_environment_hook('astar_planner', 'pythonpath')
+[2.319s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/long/ros2_ws/install/astar_planner/share/astar_planner/hook/pythonpath.ps1'
+[2.319s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/long/ros2_ws/install/astar_planner/share/astar_planner/hook/pythonpath.dsv'
+[2.320s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/long/ros2_ws/install/astar_planner/share/astar_planner/hook/pythonpath.sh'
+[2.320s] Level 1:colcon.colcon_core.environment:checking '/home/long/ros2_ws/install/astar_planner/bin'
+[2.320s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(astar_planner)
+[2.321s] INFO:colcon.colcon_core.shell:Creating package script '/home/long/ros2_ws/install/astar_planner/share/astar_planner/package.ps1'
+[2.322s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/long/ros2_ws/install/astar_planner/share/astar_planner/package.dsv'
+[2.323s] INFO:colcon.colcon_core.shell:Creating package script '/home/long/ros2_ws/install/astar_planner/share/astar_planner/package.sh'
+[2.324s] INFO:colcon.colcon_core.shell:Creating package script '/home/long/ros2_ws/install/astar_planner/share/astar_planner/package.bash'
+[2.325s] INFO:colcon.colcon_core.shell:Creating package script '/home/long/ros2_ws/install/astar_planner/share/astar_planner/package.zsh'
+[2.326s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/long/ros2_ws/install/astar_planner/share/colcon-core/packages/astar_planner)
+[2.326s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[2.326s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[2.326s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[2.326s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[2.336s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[2.336s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[2.336s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[2.358s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[2.359s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/long/ros2_ws/install/local_setup.ps1'
+[2.360s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/long/ros2_ws/install/_local_setup_util_ps1.py'
+[2.362s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/long/ros2_ws/install/setup.ps1'
+[2.363s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/long/ros2_ws/install/local_setup.sh'
+[2.364s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/long/ros2_ws/install/_local_setup_util_sh.py'
+[2.365s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/long/ros2_ws/install/setup.sh'
+[2.367s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/long/ros2_ws/install/local_setup.bash'
+[2.367s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/long/ros2_ws/install/setup.bash'
+[2.369s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/long/ros2_ws/install/local_setup.zsh'
+[2.370s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/long/ros2_ws/install/setup.zsh'

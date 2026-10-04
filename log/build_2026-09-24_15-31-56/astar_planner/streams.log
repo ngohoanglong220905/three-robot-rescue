@@ -1,0 +1,17 @@
+[1.375s] Invoking command in '/home/long/ros2_ws/build/astar_planner': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/long/ros2_ws/build/astar_planner/build --no-deps symlink_data
+[1.785s] running develop
+[1.960s] running egg_info
+[1.960s] writing astar_planner.egg-info/PKG-INFO
+[1.960s] writing dependency_links to astar_planner.egg-info/dependency_links.txt
+[1.961s] writing entry points to astar_planner.egg-info/entry_points.txt
+[1.961s] writing requirements to astar_planner.egg-info/requires.txt
+[1.961s] writing top-level names to astar_planner.egg-info/top_level.txt
+[1.964s] reading manifest file 'astar_planner.egg-info/SOURCES.txt'
+[1.964s] writing manifest file 'astar_planner.egg-info/SOURCES.txt'
+[1.966s] running build_ext
+[1.966s] Creating /home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages/astar-planner.egg-link (link to .)
+[1.967s] Installing astar_node script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[1.968s] 
+[1.968s] Installed /home/long/ros2_ws/build/astar_planner
+[1.968s] running symlink_data
+[2.018s] Invoked command in '/home/long/ros2_ws/build/astar_planner' returned '0': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/long/ros2_ws/build/astar_planner/build --no-deps symlink_data

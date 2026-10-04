@@ -1,0 +1,20 @@
+[0.734s] Invoking command in '/home/long/ros2_ws/build/astar_planner': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/long/ros2_ws/build/astar_planner/build --no-deps symlink_data
+[0.902s] running develop
+[1.027s] running egg_info
+[1.028s] writing astar_planner.egg-info/PKG-INFO
+[1.028s] writing dependency_links to astar_planner.egg-info/dependency_links.txt
+[1.028s] writing entry points to astar_planner.egg-info/entry_points.txt
+[1.028s] writing requirements to astar_planner.egg-info/requires.txt
+[1.028s] writing top-level names to astar_planner.egg-info/top_level.txt
+[1.029s] reading manifest file 'astar_planner.egg-info/SOURCES.txt'
+[1.033s] writing manifest file 'astar_planner.egg-info/SOURCES.txt'
+[1.034s] running build_ext
+[1.034s] Creating /home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages/astar-planner.egg-link (link to .)
+[1.035s] Installing astar_node script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[1.035s] Installing pid_follower script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[1.035s] Installing robot_distributed_mpc script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[1.035s] Installing three_robot_dstar_mpc script to /home/long/ros2_ws/install/astar_planner/lib/astar_planner
+[1.035s] 
+[1.035s] Installed /home/long/ros2_ws/build/astar_planner
+[1.035s] running symlink_data
+[1.056s] Invoked command in '/home/long/ros2_ws/build/astar_planner' returned '0': PYTHONPATH=/home/long/ros2_ws/build/astar_planner/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/long/ros2_ws/build/astar_planner/build --no-deps symlink_data

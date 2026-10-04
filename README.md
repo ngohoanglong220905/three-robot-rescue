@@ -1,6 +1,12 @@
-# Three Robot Rescue
+# ROS 2 Workspace — Three Robot Rescue
 
 Mô phỏng 3 robot omni `3w_v2` trên world `my_maze` bằng ROS 2 Humble và Gazebo.
+
+## Phạm vi repository
+
+Repository chứa bản chụp toàn bộ workspace `~/ros2_ws`, bao gồm 4 package nguồn, `build/`, `install/`, `log/`, `.codex_backups/`, `.vscode/` và các cache hiện có. Metadata `.git` của repository gốc trong package không được sao chép; đây là repository chung cho workspace.
+
+Các file build/install có liên kết tuyệt đối tới `/home/long/ros2_ws` và phụ thuộc môi trường máy đã build. Khi clone sang thư mục hoặc máy khác, cần xóa các thư mục tự sinh trong **bản clone** và build lại từ nguồn.
 
 ## Các package
 
@@ -14,6 +20,8 @@ Mô phỏng 3 robot omni `3w_v2` trên world `my_maze` bằng ROS 2 Humble và G
 Clone repository vào workspace, sau đó chạy tại thư mục repository:
 
 ```bash
+# Chỉ chạy tại thư mục bản clone mới; xóa output build đi kèm snapshot.
+rm -rf build install log
 source /opt/ros/humble/setup.bash
 colcon build --symlink-install --packages-select astar_planner ros2_omni_robot_sim
 source install/setup.bash

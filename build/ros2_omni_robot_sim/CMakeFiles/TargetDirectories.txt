@@ -1,0 +1,11 @@
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/uninstall.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/ros2_omni_robot_sim_uninstall.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/test_cpp_publisher.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/kinematics.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/test.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/edit_cache.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/rebuild_cache.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/list_install_components.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/install.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/install/local.dir
+/home/long/ros2_ws/build/ros2_omni_robot_sim/CMakeFiles/install/strip.dir

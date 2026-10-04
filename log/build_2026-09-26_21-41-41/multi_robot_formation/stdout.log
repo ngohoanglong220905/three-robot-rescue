@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating multi_robot_formation.egg-info
+writing multi_robot_formation.egg-info/PKG-INFO
+writing dependency_links to multi_robot_formation.egg-info/dependency_links.txt
+writing entry points to multi_robot_formation.egg-info/entry_points.txt
+writing requirements to multi_robot_formation.egg-info/requires.txt
+writing top-level names to multi_robot_formation.egg-info/top_level.txt
+writing manifest file 'multi_robot_formation.egg-info/SOURCES.txt'
+reading manifest file 'multi_robot_formation.egg-info/SOURCES.txt'
+writing manifest file 'multi_robot_formation.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi-robot-formation.egg-link (link to .)
+Installing formation_pid_node script to /home/long/ros2_ws/install/multi_robot_formation/lib/multi_robot_formation
+Installing virtual_structure_node script to /home/long/ros2_ws/install/multi_robot_formation/lib/multi_robot_formation
+
+Installed /home/long/ros2_ws/build/multi_robot_formation
+running symlink_data
+creating /home/long/ros2_ws/install/multi_robot_formation/share/ament_index
+creating /home/long/ros2_ws/install/multi_robot_formation/share/ament_index/resource_index
+creating /home/long/ros2_ws/install/multi_robot_formation/share/ament_index/resource_index/packages
+symbolically linking /home/long/ros2_ws/build/multi_robot_formation/resource/multi_robot_formation -> /home/long/ros2_ws/install/multi_robot_formation/share/ament_index/resource_index/packages
+symbolically linking /home/long/ros2_ws/build/multi_robot_formation/package.xml -> /home/long/ros2_ws/install/multi_robot_formation/share/multi_robot_formation

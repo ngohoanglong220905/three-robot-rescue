@@ -1,0 +1,296 @@
+[0.000000] (-) TimerEvent: {}
+[0.000371] (-) JobUnselected: {'identifier': 'astar_planner'}
+[0.000402] (ros2_omni_robot_sim) JobQueued: {'identifier': 'ros2_omni_robot_sim', 'dependencies': OrderedDict()}
+[0.000465] (ros2_omni_robot_sim) JobStarted: {'identifier': 'ros2_omni_robot_sim'}
+[0.005008] (ros2_omni_robot_sim) JobProgress: {'identifier': 'ros2_omni_robot_sim', 'progress': 'cmake'}
+[0.005548] (ros2_omni_robot_sim) JobProgress: {'identifier': 'ros2_omni_robot_sim', 'progress': 'build'}
+[0.006143] (ros2_omni_robot_sim) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/long/ros2_ws/build/ros2_omni_robot_sim', '--', '-j16', '-l16'], 'cwd': '/home/long/ros2_ws/build/ros2_omni_robot_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'long'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/long'), ('OLDPWD', '/home/long'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '1678'), ('SYSTEMD_EXEC_PID', '2026'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4585'), ('COLCON_PREFIX_PATH', '/home/long/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'long'), ('JOURNAL_STREAM', '8:4910'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'long'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/long:@/tmp/.ICE-unix/1997,unix/long:/tmp/.ICE-unix/1997'), ('INVOCATION_ID', 'b0dada01a95d48cd976156dc46412e95'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/long/ros2_ws/install/ros2_omni_robot_sim:/home/long/ros2_ws/install/astar_planner:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:26433761-67d5-413d-825c-b4358a680050'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/long/ros2_ws/build/ros2_omni_robot_sim'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/long/ros2_ws/build/astar_planner:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/long/ros2_ws/install/ros2_omni_robot_sim:/home/long/ros2_ws/install/astar_planner:/opt/ros/humble')]), 'shell': False}
+[0.049471] (ros2_omni_robot_sim) StdoutLine: {'line': b'[ 50%] Built target test_cpp_publisher\n'}
+[0.052051] (ros2_omni_robot_sim) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/kinematics.dir/src/kinematics.cpp.o\x1b[0m\n'}
+[0.099846] (-) TimerEvent: {}
+[0.200139] (-) TimerEvent: {}
+[0.300420] (-) TimerEvent: {}
+[0.400920] (-) TimerEvent: {}
+[0.501279] (-) TimerEvent: {}
+[0.601610] (-) TimerEvent: {}
+[0.701959] (-) TimerEvent: {}
+[0.802306] (-) TimerEvent: {}
+[0.902677] (-) TimerEvent: {}
+[1.002965] (-) TimerEvent: {}
+[1.103212] (-) TimerEvent: {}
+[1.203484] (-) TimerEvent: {}
+[1.303817] (-) TimerEvent: {}
+[1.404121] (-) TimerEvent: {}
+[1.504506] (-) TimerEvent: {}
+[1.604774] (-) TimerEvent: {}
+[1.705184] (-) TimerEvent: {}
+[1.805453] (-) TimerEvent: {}
+[1.905842] (-) TimerEvent: {}
+[2.006142] (-) TimerEvent: {}
+[2.106543] (-) TimerEvent: {}
+[2.206809] (-) TimerEvent: {}
+[2.307208] (-) TimerEvent: {}
+[2.407600] (-) TimerEvent: {}
+[2.507883] (-) TimerEvent: {}
+[2.608189] (-) TimerEvent: {}
+[2.708512] (-) TimerEvent: {}
+[2.808810] (-) TimerEvent: {}
+[2.909102] (-) TimerEvent: {}
+[3.009512] (-) TimerEvent: {}
+[3.109909] (-) TimerEvent: {}
+[3.210301] (-) TimerEvent: {}
+[3.310700] (-) TimerEvent: {}
+[3.411000] (-) TimerEvent: {}
+[3.511390] (-) TimerEvent: {}
+[3.611664] (-) TimerEvent: {}
+[3.712077] (-) TimerEvent: {}
+[3.812350] (-) TimerEvent: {}
+[3.912753] (-) TimerEvent: {}
+[4.013101] (-) TimerEvent: {}
+[4.113512] (-) TimerEvent: {}
+[4.213903] (-) TimerEvent: {}
+[4.314169] (-) TimerEvent: {}
+[4.414463] (-) TimerEvent: {}
+[4.514785] (-) TimerEvent: {}
+[4.615142] (-) TimerEvent: {}
+[4.715459] (-) TimerEvent: {}
+[4.815921] (-) TimerEvent: {}
+[4.916405] (-) TimerEvent: {}
+[5.016759] (-) TimerEvent: {}
+[5.117134] (-) TimerEvent: {}
+[5.217455] (-) TimerEvent: {}
+[5.317747] (-) TimerEvent: {}
+[5.418052] (-) TimerEvent: {}
+[5.518364] (-) TimerEvent: {}
+[5.618640] (-) TimerEvent: {}
+[5.718913] (-) TimerEvent: {}
+[5.819239] (-) TimerEvent: {}
+[5.919632] (-) TimerEvent: {}
+[6.020026] (-) TimerEvent: {}
+[6.120343] (-) TimerEvent: {}
+[6.220650] (-) TimerEvent: {}
+[6.321078] (-) TimerEvent: {}
+[6.421481] (-) TimerEvent: {}
+[6.521884] (-) TimerEvent: {}
+[6.622279] (-) TimerEvent: {}
+[6.722689] (-) TimerEvent: {}
+[6.823088] (-) TimerEvent: {}
+[6.923484] (-) TimerEvent: {}
+[7.023786] (-) TimerEvent: {}
+[7.124094] (-) TimerEvent: {}
+[7.224504] (-) TimerEvent: {}
+[7.324818] (-) TimerEvent: {}
+[7.425230] (-) TimerEvent: {}
+[7.525548] (-) TimerEvent: {}
+[7.625968] (-) TimerEvent: {}
+[7.726356] (-) TimerEvent: {}
+[7.826756] (-) TimerEvent: {}
+[7.927083] (-) TimerEvent: {}
+[8.027486] (-) TimerEvent: {}
+[8.127887] (-) TimerEvent: {}
+[8.228193] (-) TimerEvent: {}
+[8.328495] (-) TimerEvent: {}
+[8.428758] (-) TimerEvent: {}
+[8.529038] (-) TimerEvent: {}
+[8.629503] (-) TimerEvent: {}
+[8.729886] (-) TimerEvent: {}
+[8.830278] (-) TimerEvent: {}
+[8.930701] (-) TimerEvent: {}
+[9.031089] (-) TimerEvent: {}
+[9.131472] (-) TimerEvent: {}
+[9.231851] (-) TimerEvent: {}
+[9.332227] (-) TimerEvent: {}
+[9.432605] (-) TimerEvent: {}
+[9.532990] (-) TimerEvent: {}
+[9.633376] (-) TimerEvent: {}
+[9.733677] (-) TimerEvent: {}
+[9.834087] (-) TimerEvent: {}
+[9.934477] (-) TimerEvent: {}
+[10.034734] (-) TimerEvent: {}
+[10.135121] (-) TimerEvent: {}
+[10.235417] (-) TimerEvent: {}
+[10.335830] (-) TimerEvent: {}
+[10.436178] (-) TimerEvent: {}
+[10.536531] (-) TimerEvent: {}
+[10.636881] (-) TimerEvent: {}
+[10.737230] (-) TimerEvent: {}
+[10.837593] (-) TimerEvent: {}
+[10.937930] (-) TimerEvent: {}
+[11.038289] (-) TimerEvent: {}
+[11.138646] (-) TimerEvent: {}
+[11.238996] (-) TimerEvent: {}
+[11.339373] (-) TimerEvent: {}
+[11.439755] (-) TimerEvent: {}
+[11.540123] (-) TimerEvent: {}
+[11.640529] (-) TimerEvent: {}
+[11.740874] (-) TimerEvent: {}
+[11.841249] (-) TimerEvent: {}
+[11.941616] (-) TimerEvent: {}
+[12.041896] (-) TimerEvent: {}
+[12.142251] (-) TimerEvent: {}
+[12.242588] (-) TimerEvent: {}
+[12.342922] (-) TimerEvent: {}
+[12.443271] (-) TimerEvent: {}
+[12.543565] (-) TimerEvent: {}
+[12.643921] (-) TimerEvent: {}
+[12.744203] (-) TimerEvent: {}
+[12.844556] (-) TimerEvent: {}
+[12.944830] (-) TimerEvent: {}
+[13.045224] (-) TimerEvent: {}
+[13.145615] (-) TimerEvent: {}
+[13.245922] (-) TimerEvent: {}
+[13.286428] (ros2_omni_robot_sim) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable kinematics\x1b[0m\n'}
+[13.346117] (-) TimerEvent: {}
+[13.446500] (-) TimerEvent: {}
+[13.546870] (-) TimerEvent: {}
+[13.647214] (-) TimerEvent: {}
+[13.747463] (-) TimerEvent: {}
+[13.847734] (-) TimerEvent: {}
+[13.942342] (ros2_omni_robot_sim) StdoutLine: {'line': b'[100%] Built target kinematics\n'}
+[13.947805] (-) TimerEvent: {}
+[13.951386] (ros2_omni_robot_sim) CommandEnded: {'returncode': 0}
+[13.952058] (ros2_omni_robot_sim) JobProgress: {'identifier': 'ros2_omni_robot_sim', 'progress': 'install'}
+[13.958894] (ros2_omni_robot_sim) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/long/ros2_ws/build/ros2_omni_robot_sim'], 'cwd': '/home/long/ros2_ws/build/ros2_omni_robot_sim', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'long'), ('LC_TIME', 'th_TH.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/long'), ('OLDPWD', '/home/long'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'th_TH.UTF-8'), ('MANAGERPID', '1678'), ('SYSTEMD_EXEC_PID', '2026'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4585'), ('COLCON_PREFIX_PATH', '/home/long/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'long'), ('JOURNAL_STREAM', '8:4910'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'long'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/long:@/tmp/.ICE-unix/1997,unix/long:/tmp/.ICE-unix/1997'), ('INVOCATION_ID', 'b0dada01a95d48cd976156dc46412e95'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'th_TH.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'th_TH.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/long/ros2_ws/install/ros2_omni_robot_sim:/home/long/ros2_ws/install/astar_planner:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'th_TH.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:26433761-67d5-413d-825c-b4358a680050'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'th_TH.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'th_TH.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/long/ros2_ws/build/ros2_omni_robot_sim'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/long/ros2_ws/build/astar_planner:/home/long/ros2_ws/install/astar_planner/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'th_TH.UTF-8'), ('LC_PAPER', 'th_TH.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/long/ros2_ws/install/ros2_omni_robot_sim:/home/long/ros2_ws/install/astar_planner:/opt/ros/humble')]), 'shell': False}
+[13.964816] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[13.965119] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[13.965218] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/test_cpp_publisher\n'}
+[13.965320] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/kinematics\n'}
+[13.965657] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/gazebo_sim.launch.py\n'}
+[13.965737] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/nav2.launch.py\n'}
+[13.965774] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/navigation_gazebo_sim.launch.py\n'}
+[13.965939] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/slam_gazebo_sim.launch.py\n'}
+[13.965990] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//launch/three_robot_gazebo.launch.py\n'}
+[13.975913] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/IMU/IMU.gazebo.xacro\n'}
+[13.976144] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/IMU/IMU.urdf.xacro\n'}
+[13.976213] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base/base.gazebo.xacro\n'}
+[13.976248] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base/base.urdf.xacro\n'}
+[13.976284] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base_layer/base_layer.gazebo.xacro\n'}
+[13.976319] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/base_layer/base_layer.urdf.xacro\n'}
+[13.976350] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera/camera.gazebo.xacro\n'}
+[13.976420] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera/camera.urdf.xacro\n'}
+[13.976467] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera_bracket/camera_bracket.gazebo.xacro\n'}
+[13.976509] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera_bracket/camera_bracket.transmission.xacro\n'}
+[13.976549] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/camera_bracket/camera_bracket.urdf.xacro\n'}
+[13.976581] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/gazebo_plugins.urdf.xacro\n'}
+[13.976613] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/laser/laser.gazebo.xacro\n'}
+[13.976656] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/laser/laser.urdf.xacro\n'}
+[13.976695] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/main.urdf.xacro\n'}
+[13.976739] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/omni_wheel/omni_wheel.gazebo.xacro\n'}
+[13.976778] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/omni_wheel/omni_wheel.transmission.xacro\n'}
+[13.976809] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/omni_wheel/omni_wheel.urdf.xacro\n'}
+[13.976848] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/roller/roller.gazebo.xacro\n'}
+[13.976887] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/roller/roller.transmission.xacro\n'}
+[13.976925] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/roller/roller.urdf.xacro\n'}
+[13.976964] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w/ros2_control.urdf.xacro\n'}
+[13.977002] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/base_link.urdf.xacro\n'}
+[13.977043] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/camera.urdf.xacro\n'}
+[13.977079] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/gazebo_plugins.urdf.xacro\n'}
+[13.977108] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/imu.urdf.xacro\n'}
+[13.977138] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/lidar.urdf.xacro\n'}
+[13.977180] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/main.urdf.xacro\n'}
+[13.977217] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/omni_wheel.urdf.xacro\n'}
+[13.977246] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/roller.urdf.xacro\n'}
+[13.977277] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/3w_v2/ros2_control.urdf.xacro\n'}
+[13.977308] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/base_link.urdf.xacro\n'}
+[13.977337] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/camera.urdf.xacro\n'}
+[13.977368] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/gazebo_plugins.urdf.xacro\n'}
+[13.977417] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/imu.urdf.xacro\n'}
+[13.977452] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/lidar.urdf.xacro\n'}
+[13.977495] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/main.urdf.xacro\n'}
+[13.977534] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/omni_wheel.urdf.xacro\n'}
+[13.977562] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/roller.urdf.xacro\n'}
+[13.977592] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/4w/ros2_control.urdf.xacro\n'}
+[13.977624] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/base_link.urdf.xacro\n'}
+[13.977663] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/camera.urdf.xacro\n'}
+[13.977718] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/gazebo_plugins.urdf.xacro\n'}
+[13.977751] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/imu.urdf.xacro\n'}
+[13.977785] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/lidar.urdf.xacro\n'}
+[13.977828] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/main.urdf.xacro\n'}
+[13.977860] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/omni_wheel.urdf.xacro\n'}
+[13.977904] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/roller.urdf.xacro\n'}
+[13.977948] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/5w/ros2_control.urdf.xacro\n'}
+[13.977994] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/base_link.urdf.xacro\n'}
+[13.978039] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/camera.urdf.xacro\n'}
+[13.978071] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/gazebo_plugins.urdf.xacro\n'}
+[13.978115] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/imu.urdf.xacro\n'}
+[13.978144] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/lidar.urdf.xacro\n'}
+[13.978187] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/main.urdf.xacro\n'}
+[13.978229] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/omni_wheel.urdf.xacro\n'}
+[13.978270] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/roller.urdf.xacro\n'}
+[13.978313] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//urdf/6w/ros2_control.urdf.xacro\n'}
+[13.978426] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/gz_sim.rviz\n'}
+[13.978472] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/navigation.rviz\n'}
+[13.978517] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/slam.rviz\n'}
+[13.978559] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//rviz/test.rviz\n'}
+[13.978672] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//worlds/maze1.sdf\n'}
+[13.978716] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//worlds/maze2.sdf\n'}
+[13.978760] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//worlds/my_maze.sdf\n'}
+[13.979174] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/base_link.dae\n'}
+[13.979210] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/base_link.stl\n'}
+[13.979252] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/camera.stl\n'}
+[13.979296] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/omni_frame.stl\n'}
+[13.979327] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/3w_v2/roller.stl\n'}
+[13.979368] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/base_link.dae\n'}
+[13.979407] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/base_link.stl\n'}
+[13.979447] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/camera.stl\n'}
+[13.979488] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/omni_frame.stl\n'}
+[13.979530] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/4w/roller.stl\n'}
+[13.979574] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/base_link.dae\n'}
+[13.979615] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/base_link.stl\n'}
+[13.979657] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/camera.stl\n'}
+[13.979702] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/omni_frame.stl\n'}
+[13.979746] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/5w/roller.stl\n'}
+[13.979788] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/base_link.dae\n'}
+[13.979831] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/base_link.stl\n'}
+[13.979874] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/camera.stl\n'}
+[13.979917] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/omni_frame.stl\n'}
+[13.979959] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/6w/roller.stl\n'}
+[13.980000] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/IMU/IMU_sensor.dae\n'}
+[13.980045] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/base/omni_wheel_body.dae\n'}
+[13.980088] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/base/omni_wheel_body_old.dae\n'}
+[13.980128] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/camera/camera.dae\n'}
+[13.980175] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/camera_bracket/camera_bracket.dae\n'}
+[13.980218] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/omni_wheel/omni_wheel.dae\n'}
+[13.980264] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/DAE/roller/omni_roller.dae\n'}
+[13.980310] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/IMU/IMU_SENSOR.stl\n'}
+[13.980356] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/base/base_link.stl\n'}
+[13.980402] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/base/base_link_old.stl\n'}
+[13.980451] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/camera/camera.stl\n'}
+[13.980498] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/camera_bracket/camera_bracket.stl\n'}
+[13.980545] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/omni_wheel/omni_wheel.stl\n'}
+[13.980590] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//meshes/STL/roller/roller.stl\n'}
+[13.980744] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_3w.yaml\n'}
+[13.980825] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_3w_v2.yaml\n'}
+[13.980891] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_4w.yaml\n'}
+[13.980922] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_5w.yaml\n'}
+[13.980964] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/controller_configs/controller_config_6w.yaml\n'}
+[13.981030] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/gz_bridge/gz_bridge.yaml\n'}
+[13.981064] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//config/nav2_params.yaml\n'}
+[13.981180] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze1.pgm\n'}
+[13.981219] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze1.yaml\n'}
+[13.981268] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze2.pgm\n'}
+[13.981305] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/maze2.yaml\n'}
+[13.981346] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/my_maze.pgm\n'}
+[13.981389] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim//map/my_maze.yaml\n'}
+[13.981471] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ament_index/resource_index/package_run_dependencies/ros2_omni_robot_sim\n'}
+[13.981556] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ament_index/resource_index/parent_prefix_path/ros2_omni_robot_sim\n'}
+[13.981635] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/ament_prefix_path.sh\n'}
+[13.981707] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/ament_prefix_path.dsv\n'}
+[13.981782] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/path.sh\n'}
+[13.981851] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/environment/path.dsv\n'}
+[13.981920] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.bash\n'}
+[13.981986] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.sh\n'}
+[13.982046] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.zsh\n'}
+[13.982103] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/local_setup.dsv\n'}
+[13.982148] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Symlinking: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/package.dsv\n'}
+[13.987983] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ament_index/resource_index/packages/ros2_omni_robot_sim\n'}
+[13.988107] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/cmake/ros2_omni_robot_simConfig.cmake\n'}
+[13.988158] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/cmake/ros2_omni_robot_simConfig-version.cmake\n'}
+[13.988190] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date symlink: /home/long/ros2_ws/install/ros2_omni_robot_sim/share/ros2_omni_robot_sim/package.xml\n'}
+[13.988228] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim\n'}
+[13.988256] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/a_star_planner.py\n'}
+[13.988288] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/test_run_motor.py\n'}
+[13.988315] (ros2_omni_robot_sim) StdoutLine: {'line': b'-- Up-to-date: /home/long/ros2_ws/install/ros2_omni_robot_sim/lib/ros2_omni_robot_sim/test_subscriber.py\n'}
+[13.989524] (ros2_omni_robot_sim) CommandEnded: {'returncode': 0}
+[13.998796] (ros2_omni_robot_sim) JobEnded: {'identifier': 'ros2_omni_robot_sim', 'rc': 0}
+[13.999120] (-) EventReactorShutdown: {}

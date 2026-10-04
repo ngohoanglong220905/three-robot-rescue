@@ -1,0 +1,1 @@
+/home/long/ros2_ws/ros2_omni_robot_sim/launch/navigation_gazebo_sim.launch.py

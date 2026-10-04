@@ -1,0 +1,34 @@
+running egg_info
+creating ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info
+writing ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/PKG-INFO
+writing dependency_links to ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/dependency_links.txt
+writing entry points to ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/entry_points.txt
+writing requirements to ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/requires.txt
+writing top-level names to ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/top_level.txt
+writing manifest file '../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/SOURCES.txt'
+reading manifest file '../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/SOURCES.txt'
+writing manifest file '../build/virtual_structure_3robot/virtual_structure_3robot.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/long/ros2_ws/build/virtual_structure_3robot/build
+creating /home/long/ros2_ws/build/virtual_structure_3robot/build/lib
+creating /home/long/ros2_ws/build/virtual_structure_3robot/build/lib/virtual_structure_3robot
+copying virtual_structure_3robot/__init__.py -> /home/long/ros2_ws/build/virtual_structure_3robot/build/lib/virtual_structure_3robot
+copying virtual_structure_3robot/virtual_structure_node.py -> /home/long/ros2_ws/build/virtual_structure_3robot/build/lib/virtual_structure_3robot
+running install
+running install_lib
+creating /home/long/ros2_ws/install/virtual_structure_3robot/lib/python3.10/site-packages/virtual_structure_3robot
+copying /home/long/ros2_ws/build/virtual_structure_3robot/build/lib/virtual_structure_3robot/__init__.py -> /home/long/ros2_ws/install/virtual_structure_3robot/lib/python3.10/site-packages/virtual_structure_3robot
+copying /home/long/ros2_ws/build/virtual_structure_3robot/build/lib/virtual_structure_3robot/virtual_structure_node.py -> /home/long/ros2_ws/install/virtual_structure_3robot/lib/python3.10/site-packages/virtual_structure_3robot
+byte-compiling /home/long/ros2_ws/install/virtual_structure_3robot/lib/python3.10/site-packages/virtual_structure_3robot/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/long/ros2_ws/install/virtual_structure_3robot/lib/python3.10/site-packages/virtual_structure_3robot/virtual_structure_node.py to virtual_structure_node.cpython-310.pyc
+running install_data
+creating /home/long/ros2_ws/install/virtual_structure_3robot/share/ament_index
+creating /home/long/ros2_ws/install/virtual_structure_3robot/share/ament_index/resource_index
+creating /home/long/ros2_ws/install/virtual_structure_3robot/share/ament_index/resource_index/packages
+copying resource/virtual_structure_3robot -> /home/long/ros2_ws/install/virtual_structure_3robot/share/ament_index/resource_index/packages
+copying package.xml -> /home/long/ros2_ws/install/virtual_structure_3robot/share/virtual_structure_3robot
+running install_egg_info
+Copying ../build/virtual_structure_3robot/virtual_structure_3robot.egg-info to /home/long/ros2_ws/install/virtual_structure_3robot/lib/python3.10/site-packages/virtual_structure_3robot-0.0.0-py3.10.egg-info
+running install_scripts
+writing list of installed files to '/home/long/ros2_ws/build/virtual_structure_3robot/install.log'

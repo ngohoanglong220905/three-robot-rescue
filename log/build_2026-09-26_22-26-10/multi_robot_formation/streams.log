@@ -1,0 +1,40 @@
+[0.615s] Invoking command in '/home/long/ros2_ws/build/multi_robot_formation': PYTHONPATH=/home/long/ros2_ws/build/multi_robot_formation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/long/ros2_ws/build/multi_robot_formation/build
+[0.760s] running develop
+[0.873s] Removing /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi-robot-formation.egg-link (link to .)
+[0.888s] Invoked command in '/home/long/ros2_ws/build/multi_robot_formation' returned '0': PYTHONPATH=/home/long/ros2_ws/build/multi_robot_formation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --uninstall --editable --build-directory /home/long/ros2_ws/build/multi_robot_formation/build
+[0.890s] Invoking command in '/home/long/ros2_ws/multi_robot_formation': PYTHONPATH=/home/long/ros2_ws/build/multi_robot_formation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/multi_robot_formation build --build-base /home/long/ros2_ws/build/multi_robot_formation/build install --record /home/long/ros2_ws/build/multi_robot_formation/install.log --install-scripts $base/lib/multi_robot_formation --single-version-externally-managed install_data --force
+[1.010s] running egg_info
+[1.011s] writing ../build/multi_robot_formation/multi_robot_formation.egg-info/PKG-INFO
+[1.011s] writing dependency_links to ../build/multi_robot_formation/multi_robot_formation.egg-info/dependency_links.txt
+[1.011s] writing entry points to ../build/multi_robot_formation/multi_robot_formation.egg-info/entry_points.txt
+[1.011s] writing requirements to ../build/multi_robot_formation/multi_robot_formation.egg-info/requires.txt
+[1.011s] writing top-level names to ../build/multi_robot_formation/multi_robot_formation.egg-info/top_level.txt
+[1.012s] reading manifest file '../build/multi_robot_formation/multi_robot_formation.egg-info/SOURCES.txt'
+[1.013s] writing manifest file '../build/multi_robot_formation/multi_robot_formation.egg-info/SOURCES.txt'
+[1.013s] running build
+[1.013s] running build_py
+[1.013s] creating /home/long/ros2_ws/build/multi_robot_formation/build
+[1.013s] creating /home/long/ros2_ws/build/multi_robot_formation/build/lib
+[1.013s] creating /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+[1.013s] copying multi_robot_formation/__init__.py -> /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+[1.013s] copying multi_robot_formation/formation_pid_node.py -> /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+[1.013s] copying multi_robot_formation/virtual_structure_node.py -> /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation
+[1.013s] running install
+[1.013s] running install_lib
+[1.013s] creating /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+[1.013s] copying /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation/__init__.py -> /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+[1.013s] copying /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation/formation_pid_node.py -> /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+[1.014s] copying /home/long/ros2_ws/build/multi_robot_formation/build/lib/multi_robot_formation/virtual_structure_node.py -> /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation
+[1.014s] byte-compiling /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation/__init__.py to __init__.cpython-310.pyc
+[1.014s] byte-compiling /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation/formation_pid_node.py to formation_pid_node.cpython-310.pyc
+[1.015s] byte-compiling /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation/virtual_structure_node.py to virtual_structure_node.cpython-310.pyc
+[1.016s] running install_data
+[1.016s] copying resource/multi_robot_formation -> /home/long/ros2_ws/install/multi_robot_formation/share/ament_index/resource_index/packages
+[1.016s] copying package.xml -> /home/long/ros2_ws/install/multi_robot_formation/share/multi_robot_formation
+[1.016s] running install_egg_info
+[1.017s] Copying ../build/multi_robot_formation/multi_robot_formation.egg-info to /home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages/multi_robot_formation-0.0.1-py3.10.egg-info
+[1.017s] running install_scripts
+[1.029s] Installing formation_pid_node script to /home/long/ros2_ws/install/multi_robot_formation/lib/multi_robot_formation
+[1.029s] Installing virtual_structure_node script to /home/long/ros2_ws/install/multi_robot_formation/lib/multi_robot_formation
+[1.029s] writing list of installed files to '/home/long/ros2_ws/build/multi_robot_formation/install.log'
+[1.042s] Invoked command in '/home/long/ros2_ws/multi_robot_formation' returned '0': PYTHONPATH=/home/long/ros2_ws/build/multi_robot_formation/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/long/ros2_ws/install/multi_robot_formation/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/multi_robot_formation build --build-base /home/long/ros2_ws/build/multi_robot_formation/build install --record /home/long/ros2_ws/build/multi_robot_formation/install.log --install-scripts $base/lib/multi_robot_formation --single-version-externally-managed install_data --force
