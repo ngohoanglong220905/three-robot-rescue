@@ -1,10 +1,12 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="lidar" params="suffix parent xyz rpy prefix">
+  <xacro:macro name="lidar" params="suffix parent xyz rpy prefix multilayer:=false">
+    <xacro:property name="is_multilayer" value="${str(multilayer).lower() in ('true', '1')}"/>
+    <xacro:property name="lidar_link" value="${'leader_lidar_link' if is_multilayer else prefix + '/lidar_link_' + str(suffix)}"/>
 
     <!-- LiDAR link -->
-    <link name="${prefix}/lidar_link_${suffix}">
+    <link name="${lidar_link}">
 
       <visual>
 
@@ -32,7 +34,7 @@
 
       <parent link="${parent}" />
 
-      <child link="${prefix}/lidar_link_${suffix}" />
+      <child link="${lidar_link}" />
 
       <origin
         xyz="${xyz}"
@@ -44,7 +46,7 @@
 
 
     <!-- Gazebo LiDAR -->
-    <gazebo reference="${prefix}/lidar_link_${suffix}">
+    <gazebo reference="${lidar_link}">
 
       <sensor
         name="${prefix}_gpu_lidar"
@@ -55,7 +57,7 @@
         <update_rate>5</update_rate>
 
         <gz_frame_id>
-          ${prefix}/lidar_link_${suffix}
+          ${prefix + '/leader_lidar_link' if is_multilayer else prefix + '/lidar_link_' + str(suffix)}
         </gz_frame_id>
 
         <ray>
@@ -74,6 +76,16 @@
 
             </horizontal>
 
+            <!-- The elevated leader scans down to the floor as well as
+                 horizontally. Its point cloud is height-filtered into /scan. -->
+            <xacro:if value="${is_multilayer}">
+              <vertical>
+                <samples>91</samples>
+                <resolution>1</resolution>
+                <min_angle>${-pi/3}</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </xacro:if>
           </scan>
 
 

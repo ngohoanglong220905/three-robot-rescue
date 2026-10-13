@@ -1,11 +1,26 @@
 """Moving triangle/column references with independent follower catch-up paths."""
 
+import bisect
 import math
 
 from .adaptive_leader import AdaptiveLeaderFormation
 from .formation_motion import team_motion_free
 from .leader_follower import Polyline
 from .peer_safety import peer_motion_free
+
+
+def checked_advance(line, previous, distance, segment_free, actual=None):
+    """Cross small trail samples in one step when the swept chord is free."""
+    start = line.sample(previous) if actual is None else actual
+    if segment_free(start, line.sample(distance)):
+        return distance
+    # Retain a corner if skipping it would cut into an inflated obstacle.
+    first = bisect.bisect_right(line.distances, previous + 1e-6)
+    last = bisect.bisect_left(line.distances, distance)
+    for k in range(last - 1, first - 1, -1):
+        if segment_free(start, line.points[k]):
+            return line.distances[k]
+    return previous
 
 
 def checked_team_row(before, proposed, order, segment_free):
@@ -34,7 +49,7 @@ def checked_team_row(before, proposed, order, segment_free):
 
 
 class FollowerTrack:
-    """Cache checked joining routes; never stop another robot for tracking lag."""
+    """Cache checked joining routes and sample them by distance, not vertex count."""
     def __init__(self, segment_free, route_between):
         self.segment_free, self.route_between = segment_free, route_between
         self.line, self.goal, self.progress = None, None, 0.0
@@ -80,9 +95,10 @@ class FollowerTrack:
             if cap_to_slots:
                 limit, _ = line.project(goals[k], previous, behind=line.length, ahead=line.length)
                 distance = max(previous, min(distance, limit))
-            # A row must include each corner before the following segment.
-            # Interpolating directly across two route segments may cut a wall.
-            distance = next((s for s in line.distances if previous + 1e-6 < s < distance), distance)
+            # Measured breadcrumbs may be only 1.5 cm apart. Treating every
+            # sample as a mandatory stop starves MPC of forward velocity.
+            distance = checked_advance(line, previous, distance, self.segment_free,
+                                       actual if k == 0 else None)
             result.append((*line.sample(distance)[:2], goals[k][2]))
             previous = distance
         return result
@@ -90,13 +106,17 @@ class FollowerTrack:
 
 class MovingAdaptiveFormation(AdaptiveLeaderFormation):
     """Switch target shape immediately and form it while the leader moves."""
-    def __init__(self, *args, follower_speed=0.22, allow_triangle=True, **kwargs):
+    def __init__(self, *args, follower_speed=0.22, narrow_follower_speed=0.12,
+                 allow_triangle=True, **kwargs):
         super().__init__(*args, **kwargs)
         self.follower_speed = follower_speed
+        self.narrow_follower_speed = narrow_follower_speed
         self.allow_triangle = allow_triangle
         self.tracks = {i: FollowerTrack(self.segment_free, self.route_between)
                        for i in self.order[1:]}
         self.leader_reference = 0.0
+        self.column_terminal_end = None
+        self.column_narrow = False
 
     def observe(self, poses):
         self.poses = tuple(tuple(p[:3]) for p in poses)
@@ -137,6 +157,8 @@ class MovingAdaptiveFormation(AdaptiveLeaderFormation):
         self.state, self.transition_state, self.width = state, state, width
         self.transition = None
         self.open_candidate = None
+        self.column_terminal_end = None
+        self.column_narrow = False
         self.mode = state + ' / followers joining'
         for track in self.tracks.values():
             track.line = None
@@ -166,6 +188,52 @@ class MovingAdaptiveFormation(AdaptiveLeaderFormation):
         if self.elapsed - self.open_since + 1e-9 >= self.open_hold:
             self.begin_transition('triangle', width)
 
+    def column_spacing(self):
+        """Limit convoy stretching using measured adjacent arc gaps."""
+        column = self.column
+        predecessors = (column.trail.length, column.progress[self.middle])
+        factors = []
+        for index, predecessor in zip(self.order[1:], predecessors):
+            excess = max(0.0, predecessor - column.progress[index] - self.gap)
+            # Off-trail joining distance also takes time to recover. A small
+            # tracking error is normal; larger errors slow the predecessor.
+            excess = max(excess, column.errors[index])
+            factors.append(max(0.0, min(1.0, (0.38 - excess) / 0.30)))
+        return factors
+
+    def column_goals(self, leader_rows, leader_distances):
+        """Use one moving leader anchor for both followers, with peer bounds."""
+        column, trail = self.column, self.column.trail
+        s, route = column.progress[self.leader], column.route
+        endpoint = route.sample(route.length)
+        if (self.column_terminal_end is None and route.length - s < 0.05
+                and math.dist(self.poses[self.leader][:2], endpoint[:2]) < 0.05
+                and self.segment_free(trail.points[-1], endpoint)):
+            # Latch final slots once: the tail must not wait for the middle's
+            # remaining tracking error to disappear before getting its goal.
+            self.column_terminal_end = trail.length + math.dist(trail.points[-1], endpoint[:2])
+
+        # Preview may move inside the desired gap, but never assumes that the
+        # preceding robot has already vacated its measured position. XY sweeps
+        # below still handle hairpins where arc spacing alone is insufficient.
+        preview_gap = min(self.gap, max(0.46, self.gap - 0.20))
+        predecessors = {self.middle: trail.length,
+                        self.tail: column.progress[self.middle]}
+        result = []
+        for point, distance in zip(leader_rows, leader_distances):
+            anchor = (self.column_terminal_end if self.column_terminal_end is not None
+                      else trail.length + max(0.0, distance - s))
+            row = list(self.poses)
+            row[self.leader] = point
+            for rank, index in enumerate(self.order[1:], 1):
+                target = max(column.progress[index], min(
+                    anchor - rank * self.gap, predecessors[index] - preview_gap))
+                # Followers only use recorded, collision-checked trail. Future
+                # leader motion shifts their slots along that existing trail.
+                row[index] = self._spine(min(trail.length, target))
+            result.append(tuple(row))
+        return result
+
     def rows(self, poses, dt, horizon, mpc_dt):
         self.poses = tuple(tuple(p[:3]) for p in poses)
         dt = max(0.0, min(0.2, dt))
@@ -178,31 +246,44 @@ class MovingAdaptiveFormation(AdaptiveLeaderFormation):
         s, line = column.progress[leader], column.route
         clearance = min(self.clearance(line.sample(s + offset)) for offset in (0.0, 0.20, 0.40))
         speed = self.narrow_speed if clearance < 0.32 else self.speed
-        # Only the leader's own path error can reduce its nominal reference
-        # speed. Follower lag, gap, yaw and assembly no longer stop it.
+        spacing_factors = (1.0, 1.0)
+        if self.state == 'column':
+            spacing_factors = self.column_spacing()
+            team_clearance = min(
+                [clearance] + [self.clearance(self.poses[i]) for i in self.order[1:]]
+                + [self.clearance(column.trail.sample(column.progress[i] + offset))
+                   for i in self.order[1:] for offset in (0.0, 0.20, 0.40)])
+            if team_clearance < 0.32:
+                self.column_narrow = True
+            elif team_clearance >= 0.36:
+                self.column_narrow = False
+            # Keep passage speed until the rear has cleared it, even if the
+            # leader itself is already outside. Reserve follower catch-up speed.
+            if self.column_narrow:
+                speed = min(speed, self.narrow_speed)
+            speed = min(speed, self.follower_speed, self.transition_speed)
+            speed *= min(spacing_factors)
         speed *= max(0.0, min(1.0, (0.20 - column.errors[leader]) / 0.12))
-        self.leader_reference = min(line.length, s + 0.08,
+        allowance = min(0.08, 0.5 * speed) if self.state == 'column' else 0.08
+        self.leader_reference = min(line.length, s + allowance,
                                     max(s, self.leader_reference) + dt * speed)
-        previous, leader_rows = s, []
+        previous, leader_rows, leader_distances = s, [], []
         for k in range(horizon + 1):
             distance = min(line.length, s + 0.24, self.leader_reference + k * speed * mpc_dt)
-            distance = next((d for d in line.distances if previous + 1e-6 < d < distance), distance)
+            distance = checked_advance(line, previous, distance, self.segment_free,
+                                       self.poses[leader] if k == 0 else None)
             leader_rows.append(line.sample(distance))
+            leader_distances.append(distance)
             previous = distance
 
         ideal = []
-        for point in leader_rows:
-            if self.state == 'triangle':
-                distance, _ = line.project(point, s, behind=0.0, ahead=0.40)
+        if self.state == 'triangle':
+            for point, distance in zip(leader_rows, leader_distances):
                 row = list(self.configuration(max(0.0, distance - s), self.width))
-            else:
-                row = list(self.poses)
-                limits = {self.middle: column.trail.length,
-                          self.tail: column.progress[self.middle]}
-                for index in self.order[1:]:
-                    row[index] = column.trail.sample(max(column.progress[index], limits[index] - self.gap))
-            row[leader] = point
-            ideal.append(tuple(row))
+                row[leader] = point
+                ideal.append(tuple(row))
+        else:
+            ideal = self.column_goals(leader_rows, leader_distances)
 
         proposed = [[None] * 3 for _ in range(horizon + 1)]
         for k, point in enumerate(leader_rows):
@@ -224,9 +305,12 @@ class MovingAdaptiveFormation(AdaptiveLeaderFormation):
             follower_speed = self.transition_speed if joining else self.follower_speed
             if min(self.clearance(track.line.sample(track.progress + offset))
                    for offset in (0.0, 0.20)) < 0.32:
-                follower_speed = min(follower_speed, self.narrow_speed)
+                limit = self.narrow_follower_speed if self.state == 'column' else self.narrow_speed
+                follower_speed = min(follower_speed, limit)
+            if self.state == 'column' and index == self.middle:
+                follower_speed *= spacing_factors[1]
             references = track.references(self.poses[index], goals, follower_speed, dt,
-                                          horizon, mpc_dt, self.state == 'triangle')
+                                          horizon, mpc_dt, True)
             for k, point in enumerate(references):
                 proposed[k][index] = point
 
@@ -236,9 +320,14 @@ class MovingAdaptiveFormation(AdaptiveLeaderFormation):
             result.append(before)
         self.leader_reference, _ = line.project(result[0][leader], s, behind=0.0, ahead=0.40)
         self.mode = ('triangle / tracking' if self.state == 'triangle' else 'column / tracking')
-        if clearance < 0.32:
+        if clearance < 0.32 or (self.state == 'column' and self.column_narrow):
             self.mode += ' / narrow passage'
-        if s < line.length - 0.05 and math.dist(result[0][leader][:2], self.poses[leader][:2]) < 1e-5:
+        if self.state == 'column' and min(spacing_factors) < 0.95:
+            self.mode += ' / closing gaps'
+        if self.state == 'column' and self.column_terminal_end is not None:
+            self.mode += ' / final slots'
+        if (s < line.length - 0.05 and speed > 1e-5
+                and math.dist(result[0][leader][:2], self.poses[leader][:2]) < 1e-5):
             self.mode += ' / leader path blocked'
         self.last_rows = result
         return result

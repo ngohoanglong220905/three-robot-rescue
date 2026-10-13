@@ -1,0 +1,17 @@
+{
+  "talk_a.dae": {
+    "url": "https://raw.githubusercontent.com/gazebosim/gazebo-classic/b22c6e15e52299865b31093b8feebc9ca19e26e8/media/models/talk_a.dae",
+    "sha256": "c878eb9d26d461a6b7386e89e8aa36460669042fd76d6b4150c0b17dfc2c5d5f",
+    "bytes": 9791645
+  },
+  "talk_b.dae": {
+    "url": "https://raw.githubusercontent.com/gazebosim/gazebo-classic/b22c6e15e52299865b31093b8feebc9ca19e26e8/media/models/talk_b.dae",
+    "sha256": "383b2f45b9efe7aca8b23f89a94341a44aed4f7cfab1a83fc198e0856a4f3083",
+    "bytes": 9767299
+  },
+  "LICENSE": {
+    "url": "https://raw.githubusercontent.com/gazebosim/gazebo-classic/b22c6e15e52299865b31093b8feebc9ca19e26e8/LICENSE",
+    "sha256": "d26974a952e546ec998cc18efa7a043b33d5edc06d3019ba1bad453955051968",
+    "bytes": 621
+  }
+}

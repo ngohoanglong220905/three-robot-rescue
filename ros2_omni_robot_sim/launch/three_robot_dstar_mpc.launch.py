@@ -1,4 +1,4 @@
-"""Run my_maze with three 3w_v2 robots and D* Lite / leader-follower MPC."""
+"""Run three 3w_v2 robots and D* Lite / leader-follower MPC (default: my_maze)."""
 
 import os
 
@@ -62,7 +62,7 @@ def generate_launch_description():
         output='screen',
         parameters=[
             {
-                'yaml_filename': map_yaml,
+                'yaml_filename': LaunchConfiguration('map_yaml'),
                 'frame_id': 'map',
                 'use_sim_time': ParameterValue(LaunchConfiguration('simulation'), value_type=bool),
             }
@@ -88,6 +88,7 @@ def generate_launch_description():
         executable='three_robot_dstar_mpc',
         name='three_robot_dstar_mpc',
         output='screen',
+        remappings=[('/map', LaunchConfiguration('planning_map_topic'))],
         parameters=[
             {
                 'use_sim_time': ParameterValue(LaunchConfiguration('simulation'), value_type=bool),
@@ -99,6 +100,14 @@ def generate_launch_description():
                     3.5, -2.2, 1.57,
                 ],
                 'leader_robot': LaunchConfiguration('leader_robot'),
+                'social_observation_enabled': ParameterValue(
+                    LaunchConfiguration('social_observation_enabled'), value_type=bool),
+                'observation_angular_speed': ParameterValue(
+                    LaunchConfiguration('observation_angular_speed'), value_type=float),
+                'observation_dwell': ParameterValue(
+                    LaunchConfiguration('observation_dwell'), value_type=float),
+                'observation_analysis_time': ParameterValue(
+                    LaunchConfiguration('observation_analysis_time'), value_type=float),
                 'adaptive_formation': ParameterValue(
                     LaunchConfiguration('adaptive_formation'), value_type=bool),
                 'formation_triangle_half_width': 0.50,
@@ -107,6 +116,8 @@ def generate_launch_description():
                     LaunchConfiguration('formation_transition_speed'), value_type=float),
                 'formation_follower_speed': ParameterValue(
                     LaunchConfiguration('formation_follower_speed'), value_type=float),
+                'formation_narrow_follower_speed': ParameterValue(
+                    LaunchConfiguration('formation_narrow_follower_speed'), value_type=float),
                 'formation_open_hold': ParameterValue(
                     LaunchConfiguration('formation_open_hold'), value_type=float),
                 'formation_follow_gap': 0.70,
@@ -123,6 +134,7 @@ def generate_launch_description():
             executable='robot_distributed_mpc',
             name=f'{robot_name}_distributed_mpc',
             output='screen',
+            remappings=[('/map', LaunchConfiguration('planning_map_topic'))],
             parameters=[
                 {
                     'use_sim_time': ParameterValue(LaunchConfiguration('simulation'), value_type=bool),
@@ -141,12 +153,24 @@ def generate_launch_description():
 
     rviz = OpaqueFunction(
         function=_launch_rviz,
-        args=[rviz_config],
+        args=[LaunchConfiguration('rviz_config')],
         condition=IfCondition(LaunchConfiguration('rviz')),
     )
 
     return LaunchDescription(
         [
+            DeclareLaunchArgument('world', default_value='my_maze'),
+            DeclareLaunchArgument('map_yaml', default_value=map_yaml),
+            DeclareLaunchArgument('planning_map_topic', default_value='/map',
+                                  description='Map shared by the coordinator and all three MPC nodes.'),
+            DeclareLaunchArgument('social_observation_enabled', default_value='false', choices=['true', 'false']),
+            DeclareLaunchArgument('observation_angular_speed', default_value='0.75'),
+            DeclareLaunchArgument('observation_dwell', default_value='0.8'),
+            DeclareLaunchArgument('observation_analysis_time', default_value='0.0'),
+            DeclareLaunchArgument('rviz_config', default_value=rviz_config),
+            DeclareLaunchArgument(
+                'bridge_config', default_value=os.path.join(
+                    sim_share, 'config', 'gz_bridge', 'gz_bridge_3robots.yaml')),
             DeclareLaunchArgument(
                 'adaptive_formation',
                 default_value='true',
@@ -155,8 +179,16 @@ def generate_launch_description():
             DeclareLaunchArgument(
                 'leader_robot',
                 default_value='robot3',
+                choices=['robot1', 'robot2', 'robot3'],
                 description='Leader robot; robot3 starts at the front of the spawned triangle.',
             ),
+            DeclareLaunchArgument(
+                'leader_camera', default_value='true', choices=['true', 'false'],
+                description='Enable the leader RGB-D camera and /leader/camera image topics.',
+            ),
+            DeclareLaunchArgument('camera_width', default_value='640'),
+            DeclareLaunchArgument('camera_height', default_value='480'),
+            DeclareLaunchArgument('camera_rate', default_value='15.0'),
             DeclareLaunchArgument(
                 'formation_transition_speed', default_value='0.22',
                 description='Reference speed in m/s while folding or opening the formation.',
@@ -164,6 +196,10 @@ def generate_launch_description():
             DeclareLaunchArgument(
                 'formation_follower_speed', default_value='0.22',
                 description='Reference speed in m/s for independent follower catch-up.',
+            ),
+            DeclareLaunchArgument(
+                'formation_narrow_follower_speed', default_value='0.12',
+                description='Follower catch-up reference speed limit in narrow passages (m/s).',
             ),
             DeclareLaunchArgument(
                 'formation_open_hold', default_value='0.60',
@@ -203,7 +239,14 @@ def generate_launch_description():
                 PythonLaunchDescriptionSource(sim_launch),
                 condition=IfCondition(LaunchConfiguration('simulation')),
                 launch_arguments={
+                    'world': LaunchConfiguration('world'),
+                    'bridge_config': LaunchConfiguration('bridge_config'),
                     'gazebo_rendering': LaunchConfiguration('gazebo_rendering'),
+                    'leader_robot': LaunchConfiguration('leader_robot'),
+                    'leader_camera': LaunchConfiguration('leader_camera'),
+                    'camera_width': LaunchConfiguration('camera_width'),
+                    'camera_height': LaunchConfiguration('camera_height'),
+                    'camera_rate': LaunchConfiguration('camera_rate'),
                     'robot1_x': '4.0', 'robot1_y': '-2.9', 'robot1_yaw': '1.57',
                     'robot2_x': '3.0', 'robot2_y': '-2.9', 'robot2_yaw': '1.57',
                     'robot3_x': '3.5', 'robot3_y': '-2.2', 'robot3_yaw': '1.57',

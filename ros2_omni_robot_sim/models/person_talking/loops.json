@@ -1,0 +1,14 @@
+{
+  "a": {
+    "duration": 23.91666338,
+    "height_offset": 1.066,
+    "mesh": "talk_a_inplace.dae",
+    "mesh_forward_yaw": -1.5707963267948966
+  },
+  "b": {
+    "duration": 23.91666338,
+    "height_offset": 1.0807,
+    "mesh": "talk_b_inplace.dae",
+    "mesh_forward_yaw": -1.5707963267948966
+  }
+}

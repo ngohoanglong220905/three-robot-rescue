@@ -100,6 +100,19 @@ class GridClearance:
             squared = min(squared, point_box_distance_squared(*p, box))
         return math.sqrt(squared)
 
+    def segment_clearance(self, start, end, limit=0.6):
+        """Minimum obstacle/boundary distance over the entire swept segment."""
+        a, b = self.local(start), self.local(end)
+        closest = min(limit, a[0], a[1], b[0], b[1],
+                      self.width * self.resolution - max(a[0], b[0]),
+                      self.height * self.resolution - max(a[1], b[1]))
+        if closest <= 0.0:
+            return 0.0
+        squared = closest * closest
+        for box in self.boxes(a, b, limit):
+            squared = min(squared, segment_box_distance_squared(a, b, box))
+        return math.sqrt(squared)
+
     def segment_free(self, start, end):
         a, b = self.local(start), self.local(end)
         return self.inside(a) and self.inside(b) and all(

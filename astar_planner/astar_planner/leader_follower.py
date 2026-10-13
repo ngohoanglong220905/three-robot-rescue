@@ -60,6 +60,13 @@ class Polyline:
                 best = (score, s, error)
         return best[1], best[2]
 
+    def remaining_segments(self, distance):
+        """Clip the first edge at measured progress; passed obstacles are behind us."""
+        distance = max(0.0, min(self.length, distance))
+        first = bisect.bisect_right(self.distances, distance)
+        points = [self.sample(distance)[:2], *self.points[first:]]
+        yield from zip(points, points[1:])
+
 
 class LeaderFollower:
     def __init__(self, route, trail, initial_progress, order, segment_free, clearance,
@@ -187,8 +194,7 @@ class LeaderFollower:
     def remaining_segments(self):
         leader, middle, tail = self.order
         for line, s in ((self.route, self.progress[leader]), (self.trail, self.progress[tail])):
-            first = max(0, bisect.bisect_left(line.distances, s) - 1)
-            yield from zip(line.points[first:], line.points[first + 1:])
+            yield from line.remaining_segments(s)
 
 
 class ClearanceRecovery:

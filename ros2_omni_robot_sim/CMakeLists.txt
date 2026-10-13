@@ -53,10 +53,14 @@ install(DIRECTORY
   rviz
   worlds
   meshes
+  models
   config
   map
   DESTINATION share/${PROJECT_NAME}/
 )
+
+install(FILES README_MPC_FORMATION.md README_SOCIAL_SCENE.md README_SOCIAL_PEOPLE.md
+        DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

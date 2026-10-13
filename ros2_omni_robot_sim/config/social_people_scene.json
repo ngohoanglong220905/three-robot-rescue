@@ -1,0 +1,483 @@
+{
+  "world": "social_people",
+  "frame_id": "map",
+  "bounds": [
+    -6.5,
+    -5.5,
+    6.5,
+    5.5
+  ],
+  "annotation_source": "authored_scenario_ground_truth_not_camera_detection",
+  "map_contains_people": false,
+  "map_contains_social_zones": false,
+  "people": [
+    {
+      "name": "pair_a",
+      "x": 2.65,
+      "y": 0.45,
+      "yaw": -0.66596923737911,
+      "activity": "scripted_conversation_gestures",
+      "group": "near_pair",
+      "radius": 0.3,
+      "height": 1.74,
+      "posture": "standing",
+      "animation": "a"
+    },
+    {
+      "name": "pair_b",
+      "x": 4.05,
+      "y": 0.45,
+      "yaw": -2.4756234162106834,
+      "activity": "scripted_conversation_gestures",
+      "group": "near_pair",
+      "radius": 0.3,
+      "height": 1.74,
+      "posture": "standing",
+      "animation": "b"
+    },
+    {
+      "name": "group_a",
+      "x": -3.4,
+      "y": 1.5,
+      "yaw": 0.4228539261329407,
+      "activity": "scripted_conversation_gestures",
+      "group": "talk_group",
+      "radius": 0.3,
+      "height": 1.74,
+      "posture": "standing",
+      "animation": "b"
+    },
+    {
+      "name": "group_b",
+      "x": -1.4,
+      "y": 1.5,
+      "yaw": 2.7187387274568526,
+      "activity": "scripted_conversation_gestures",
+      "group": "talk_group",
+      "radius": 0.3,
+      "height": 1.74,
+      "posture": "standing",
+      "animation": "a"
+    },
+    {
+      "name": "group_c",
+      "x": -2.4,
+      "y": 2.8,
+      "yaw": -1.5707963267948966,
+      "activity": "scripted_conversation_gestures",
+      "group": "talk_group",
+      "radius": 0.3,
+      "height": 1.74,
+      "posture": "standing",
+      "animation": "b"
+    },
+    {
+      "name": "standing_a",
+      "x": -3.5,
+      "y": -2.0,
+      "yaw": -0.3,
+      "activity": "standing",
+      "group": "standing_a",
+      "radius": 0.32,
+      "posture": "standing",
+      "height": 1.78
+    },
+    {
+      "name": "standing_b",
+      "x": 0.0,
+      "y": 3.5,
+      "yaw": -1.5707963267948966,
+      "activity": "standing",
+      "group": "standing_b",
+      "radius": 0.32,
+      "posture": "standing",
+      "height": 1.78
+    },
+    {
+      "name": "tv_viewer_a",
+      "x": -1.0,
+      "y": -3.85,
+      "yaw": 1.3529954362584777,
+      "activity": "watching_tv",
+      "group": "tv_group",
+      "radius": 0.32,
+      "posture": "seated",
+      "height": 1.4
+    },
+    {
+      "name": "tv_viewer_b",
+      "x": 0.35,
+      "y": -3.85,
+      "yaw": 1.7885972173313154,
+      "activity": "watching_tv",
+      "group": "tv_group",
+      "radius": 0.32,
+      "posture": "seated",
+      "height": 1.4
+    }
+  ],
+  "obstacles": [
+    {
+      "name": "chair_tv_viewer_a_seat",
+      "xy": [
+        -0.9935175102458098,
+        -3.820708749999585
+      ],
+      "height": 0.1,
+      "size": [
+        0.65,
+        0.72
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_back",
+      "xy": [
+        -1.073468217214156,
+        -4.1819675000047045
+      ],
+      "height": 0.86,
+      "size": [
+        0.12,
+        0.72
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_arm_-1",
+      "xy": [
+        -0.6344195901587534,
+        -3.9104232069680696
+      ],
+      "height": 0.12,
+      "size": [
+        0.68,
+        0.1
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_leg_-1_-1",
+      "xy": [
+        -0.776314088111584,
+        -4.135069487708958
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_leg_-1_1",
+      "xy": [
+        -0.6769159118806671,
+        -3.6859369877025934
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_arm_1",
+      "xy": [
+        -1.356937090168993,
+        -3.750521793031377
+      ],
+      "height": 0.12,
+      "size": [
+        0.68,
+        0.1
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_leg_1_-1",
+      "xy": [
+        -1.3230840881193329,
+        -4.014063012297407
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_a_leg_1_1",
+      "xy": [
+        -1.223685911888416,
+        -3.564930512291042
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.3529954362584777
+    },
+    {
+      "name": "chair_tv_viewer_b_seat",
+      "xy": [
+        0.34351751024580973,
+        -3.820708749999585
+      ],
+      "height": 0.1,
+      "size": [
+        0.65,
+        0.72
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_back",
+      "xy": [
+        0.4234682172141559,
+        -4.1819675000047045
+      ],
+      "height": 0.86,
+      "size": [
+        0.12,
+        0.72
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_arm_-1",
+      "xy": [
+        0.7069370901689929,
+        -3.750521793031377
+      ],
+      "height": 0.12,
+      "size": [
+        0.68,
+        0.1
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_leg_-1_-1",
+      "xy": [
+        0.6730840881193328,
+        -4.014063012297407
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_leg_-1_1",
+      "xy": [
+        0.573685911888416,
+        -3.5649305122910424
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_arm_1",
+      "xy": [
+        -0.01558040984124659,
+        -3.9104232069680696
+      ],
+      "height": 0.12,
+      "size": [
+        0.68,
+        0.1
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_leg_1_-1",
+      "xy": [
+        0.12631408811158396,
+        -4.135069487708958
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "chair_tv_viewer_b_leg_1_1",
+      "xy": [
+        0.02691591188066711,
+        -3.685936987702593
+      ],
+      "height": 0.32,
+      "size": [
+        0.08,
+        0.08
+      ],
+      "yaw": 1.7885972173313154
+    },
+    {
+      "name": "tv_console",
+      "xy": [
+        -0.325,
+        -0.8
+      ],
+      "height": 0.55,
+      "size": [
+        1.7,
+        0.45
+      ],
+      "yaw": 0
+    },
+    {
+      "name": "tv_stand",
+      "xy": [
+        -0.325,
+        -0.8
+      ],
+      "height": 0.18,
+      "size": [
+        0.18,
+        0.16
+      ],
+      "yaw": 0
+    },
+    {
+      "name": "tv_frame",
+      "xy": [
+        -0.325,
+        -0.8
+      ],
+      "height": 1.02,
+      "size": [
+        1.7,
+        0.1
+      ],
+      "yaw": 0
+    }
+  ],
+  "rooms": [],
+  "passages": [],
+  "attention_targets": [
+    {
+      "name": "tv_screen",
+      "xy": [
+        -0.325,
+        -0.8
+      ]
+    }
+  ],
+  "zones": [
+    {
+      "name": "near_pair",
+      "activity": "scripted_conversation_gestures",
+      "center": [
+        3.35,
+        0.1
+      ],
+      "size": [
+        2.2,
+        1.8
+      ],
+      "color": [
+        0.1,
+        0.75,
+        0.8
+      ]
+    },
+    {
+      "name": "talk_group",
+      "activity": "scripted_conversation_gestures",
+      "center": [
+        -2.4,
+        1.95
+      ],
+      "size": [
+        2.8,
+        2.4
+      ],
+      "color": [
+        0.65,
+        0.4,
+        0.9
+      ]
+    },
+    {
+      "name": "standing_a",
+      "activity": "standing",
+      "center": [
+        -3.5,
+        -2.0
+      ],
+      "size": [
+        1.3,
+        1.3
+      ],
+      "color": [
+        0.95,
+        0.65,
+        0.15
+      ]
+    },
+    {
+      "name": "standing_b",
+      "activity": "standing",
+      "center": [
+        0,
+        3.5
+      ],
+      "size": [
+        1.3,
+        1.3
+      ],
+      "color": [
+        0.95,
+        0.65,
+        0.15
+      ]
+    },
+    {
+      "name": "tv_group",
+      "activity": "watching_tv",
+      "center": [
+        -0.325,
+        -2.325
+      ],
+      "size": [
+        2.3,
+        3.7
+      ],
+      "color": [
+        0.85,
+        0.3,
+        0.7
+      ]
+    }
+  ],
+  "spawn_poses": {
+    "robot1": [
+      4.0,
+      -2.9,
+      1.57
+    ],
+    "robot2": [
+      3.0,
+      -2.9,
+      1.57
+    ],
+    "robot3": [
+      3.5,
+      -2.2,
+      1.57
+    ]
+  }
+}

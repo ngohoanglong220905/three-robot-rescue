@@ -1,0 +1,70 @@
+# ============================================================
+# Gazebo -> ROS 2 bridge
+# 3 Omni Robots in social_people
+# ============================================================
+
+# ------------------------------------------------------------
+# CLOCK
+# ------------------------------------------------------------
+- ros_topic_name: "clock"
+  gz_topic_name: "clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+# SceneBroadcaster publishes the top-level model poses in world coordinates.
+# Keep this off /tf: the message also contains unscoped, model-relative links.
+# The formation coordinator selects only robot1, robot2 and robot3 by name.
+- ros_topic_name: "/gazebo/world_poses"
+  gz_topic_name: "/world/social_people/dynamic_pose/info"
+  ros_type_name: "tf2_msgs/msg/TFMessage"
+  gz_type_name: "ignition.msgs.Pose_V"
+  direction: GZ_TO_ROS
+
+# ============================================================
+# ROBOT 1
+# ============================================================
+
+- ros_topic_name: "/robot1/imu"
+  gz_topic_name: "/robot1/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot1/scan"
+  gz_topic_name: "/robot1/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# ============================================================
+# ROBOT 2
+# ============================================================
+
+- ros_topic_name: "/robot2/imu"
+  gz_topic_name: "/robot2/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot2/scan"
+  gz_topic_name: "/robot2/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS
+
+# ============================================================
+# ROBOT 3
+# ============================================================
+
+- ros_topic_name: "/robot3/imu"
+  gz_topic_name: "/robot3/imu"
+  ros_type_name: "sensor_msgs/msg/Imu"
+  gz_type_name: "ignition.msgs.IMU"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/robot3/scan"
+  gz_topic_name: "/robot3/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: GZ_TO_ROS

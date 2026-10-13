@@ -4,12 +4,15 @@
   <!-- Include -->
   <xacro:include filename="$(find ros2_omni_robot_sim)/urdf/3w_v2_multi/omni_wheel.urdf.xacro"/>
   <xacro:include filename="$(find ros2_omni_robot_sim)/urdf/3w_v2_multi/camera.urdf.xacro"/>
+  <xacro:include filename="$(find ros2_omni_robot_sim)/urdf/3w_v2_multi/leader_camera.urdf.xacro"/>
   <xacro:include filename="$(find ros2_omni_robot_sim)/urdf/3w_v2_multi/lidar.urdf.xacro"/>
   <xacro:include filename="$(find ros2_omni_robot_sim)/urdf/3w_v2_multi/imu.urdf.xacro"/>
 
   <xacro:macro
       name="base_link"
-      params="parent xyz rpy prefix">
+      params="parent xyz rpy prefix leader_camera_enabled:=false camera_width:=640 camera_height:=480 camera_rate:=15.0">
+
+    <xacro:property name="camera_active" value="${str(leader_camera_enabled).lower() in ('true', '1')}"/>
 
     <!-- ==================== BASE ==================== -->
 
@@ -78,12 +81,18 @@
 
     <!-- ==================== CAMERA ==================== -->
 
-    <xacro:camera
+    <xacro:unless value="${camera_active}">
+      <xacro:camera
         parent="base_link"
         suffix="1"
         xyz="0.1035 -0.0000 0.0630"
         rpy="0 0 0"
         prefix="${prefix}"/>
+    </xacro:unless>
+    <xacro:if value="${camera_active}">
+      <xacro:leader_camera parent="base_link" prefix="${prefix}"
+          width="${camera_width}" height="${camera_height}" rate="${camera_rate}"/>
+    </xacro:if>
 
 
     <!-- ==================== LIDAR ==================== -->
@@ -91,8 +100,9 @@
     <xacro:lidar
         parent="base_link"
         suffix="1"
-        xyz="0.0000 0.0000 0.1010"
+        xyz="0.0000 0.0000 ${0.330 if camera_active else 0.101}"
         rpy="0 0 0"
+        multilayer="${camera_active}"
         prefix="${prefix}"/>
 
 

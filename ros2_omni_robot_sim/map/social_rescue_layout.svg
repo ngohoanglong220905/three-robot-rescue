@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900">
+  <rect x="0" y="0" width="1000" height="900" fill="#f4f7fa" />
+  <text x="50" y="36" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="26">SOCIAL RESCUE  /  12 × 10 m  /  10 người</text>
+  <text x="50" y="61" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="14">Bố trí kịch bản — tọa độ Gazebo = map; các vùng màu là chú thích</text>
+  <rect x="141.00000000000003" y="151.49999999999997" width="208.0" height="162.5" fill="#1abfcc" stroke="#1abfcc" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <rect x="592.75" y="158.0" width="240.5" height="169.0" fill="#a666e6" stroke="#a666e6" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <rect x="339.25" y="531.75" width="97.5" height="97.5" fill="#f2a626" stroke="#f2a626" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <rect x="423.75" y="125.50000000000001" width="97.5" height="97.5" fill="#f2a626" stroke="#f2a626" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <rect x="657.75" y="379.0" width="91.0" height="91.0" fill="#f27326" stroke="#f27326" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <rect x="456.25" y="369.25" width="91.0" height="91.0" fill="#f27326" stroke="#f27326" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <rect x="124.74999999999997" y="369.25" width="91.0" height="91.0" fill="#f27326" stroke="#f27326" fill-opacity="0.14" stroke-dasharray="6 4" />
+  <polygon points="76.00,769.00 89.00,769.00 89.00,106.00 76.00,106.00" fill="#485966" />
+  <polygon points="856.00,769.00 869.00,769.00 869.00,106.00 856.00,106.00" fill="#485966" />
+  <polygon points="82.50,769.00 862.50,769.00 862.50,756.00 82.50,756.00" fill="#485966" />
+  <polygon points="82.50,119.00 862.50,119.00 862.50,106.00 82.50,106.00" fill="#485966" />
+  <polygon points="89.00,379.00 212.50,379.00 212.50,366.00 89.00,366.00" fill="#485966" />
+  <polygon points="290.50,379.00 407.50,379.00 407.50,366.00 290.50,366.00" fill="#485966" />
+  <polygon points="401.00,372.50 414.00,372.50 414.00,330.25 401.00,330.25" fill="#485966" />
+  <polygon points="401.00,271.75 414.00,271.75 414.00,119.00 401.00,119.00" fill="#485966" />
+  <polygon points="537.50,379.00 609.00,379.00 609.00,366.00 537.50,366.00" fill="#485966" />
+  <polygon points="687.00,379.00 856.00,379.00 856.00,366.00 687.00,366.00" fill="#485966" />
+  <polygon points="531.00,372.50 544.00,372.50 544.00,223.00 531.00,223.00" fill="#485966" />
+  <polygon points="531.00,158.00 544.00,158.00 544.00,119.00 531.00,119.00" fill="#485966" />
+  <polygon points="89.00,509.00 131.25,509.00 131.25,496.00 89.00,496.00" fill="#485966" />
+  <polygon points="189.75,509.00 245.00,509.00 245.00,496.00 189.75,496.00" fill="#485966" />
+  <polygon points="297.00,509.00 427.00,509.00 427.00,496.00 297.00,496.00" fill="#485966" />
+  <polygon points="492.00,509.00 563.50,509.00 563.50,496.00 492.00,496.00" fill="#485966" />
+  <polygon points="232.00,697.50 245.00,697.50 245.00,502.50 232.00,502.50" fill="#485966" />
+  <polygon points="297.00,697.50 310.00,697.50 310.00,502.50 297.00,502.50" fill="#485966" />
+  <polygon points="557.00,756.00 570.00,756.00 570.00,691.00 557.00,691.00" fill="#485966" />
+  <polygon points="557.00,613.00 570.00,613.00 570.00,502.50 557.00,502.50" fill="#485966" />
+  <polygon points="479.00,756.00 492.00,756.00 492.00,684.50 479.00,684.50" fill="#485966" />
+  <polygon points="600.88,314.00 649.62,314.00 649.62,158.00 600.88,158.00" fill="#485966" />
+  <polygon points="592.75,314.00 601.85,314.00 601.85,158.00 592.75,158.00" fill="#485966" />
+  <polygon points="599.25,321.80 651.25,321.80 651.25,314.00 599.25,314.00" fill="#485966" />
+  <polygon points="599.25,158.00 651.25,158.00 651.25,150.20 599.25,150.20" fill="#485966" />
+  <polygon points="815.38,294.50 844.62,294.50 844.62,190.50 815.38,190.50" fill="#485966" />
+  <polygon points="822.85,294.50 830.65,294.50 830.65,190.50 822.85,190.50" fill="#485966" />
+  <polygon points="98.75,281.50 131.25,281.50 131.25,164.50 98.75,164.50" fill="#485966" />
+  <polygon points="92.25,281.50 98.75,281.50 98.75,164.50 92.25,164.50" fill="#485966" />
+  <polygon points="404.25,723.50 449.75,723.50 449.75,697.50 404.25,697.50" fill="#485966" />
+  <polygon points="795.88,528.50 825.12,528.50 825.12,502.50 795.88,502.50" fill="#485966" />
+  <polygon points="488.75,279.88 514.75,279.88 514.75,257.12 488.75,257.12" fill="#485966" />
+  <polygon points="155.62,580.50 191.38,580.50 191.38,554.50 155.62,554.50" fill="#485966" />
+  <polygon points="505.00,743.00 544.00,743.00 544.00,704.00 505.00,704.00" fill="#485966" />
+  <polygon points="100.38,660.12 149.13,660.12 149.13,617.88 100.38,617.88" fill="#485966" />
+  <polygon points="781.25,734.88 839.75,734.88 839.75,692.62 781.25,692.62" fill="#485966" />
+  <circle cx="599.25" cy="457.0" r="14.3" fill="#485966" />
+  <circle cx="180.0" cy="255.5" r="20.8" fill="#485966" />
+  <circle cx="310.0" cy="255.5" r="20.8" fill="#485966" />
+  <circle cx="245.0" cy="187.25" r="20.8" fill="#485966" />
+  <polygon points="605.85,304.42 662.07,293.88 654.65,254.27 598.43,264.81" fill="#485966" />
+  <polygon points="598.18,216.63 654.23,228.02 662.25,188.53 606.20,177.14" fill="#485966" />
+  <circle cx="388.0" cy="580.5" r="20.8" fill="#485966" />
+  <circle cx="472.5" cy="174.25" r="20.8" fill="#485966" />
+  <circle cx="703.25" cy="424.5" r="20.8" fill="#485966" />
+  <circle cx="501.75" cy="414.75" r="20.8" fill="#485966" />
+  <circle cx="170.24999999999997" cy="414.75" r="20.8" fill="#485966" />
+  <circle cx="180.0" cy="255.5" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="180.0" y1="255.5" x2="223.58109597756237" y2="242.4256712067313" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="310.0" cy="255.5" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="310.0" y1="255.5" x2="266.41890402243763" y2="242.42567120673132" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="245.0" cy="187.25" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="245.0" y1="187.25" x2="245.0" y2="232.74999999999997" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="618.75" cy="281.5" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="618.75" y1="281.5" x2="663.4706845055117" y2="273.1148716552166" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="618.75" cy="200.25" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="618.75" y1="200.25" x2="663.3394230409834" y2="209.30722655519978" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="388.0" cy="580.5" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="388.0" y1="580.5" x2="420.17335854398794" y2="548.3266414560121" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="472.5" cy="174.25" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="472.5" y1="174.25" x2="472.5" y2="219.75000000000003" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="703.25" cy="424.5" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="703.25" y1="424.5" x2="703.25" y2="470.0" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="501.75" cy="414.75" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="501.75" y1="414.75" x2="501.75" y2="460.25" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="170.24999999999997" cy="414.75" r="8" fill="#f6be57" stroke="#213547" />
+  <line x1="170.24999999999997" y1="414.75" x2="215.75" y2="414.75" stroke="#ce7d16" stroke-width="3" />
+  <circle cx="732.5" cy="626.0" r="6" fill="#ed655e" />
+  <text x="740.5" y="621.0" fill="#ed655e" font-family="DejaVu Sans, sans-serif" font-size="12">robot1</text>
+  <circle cx="667.5" cy="626.0" r="6" fill="#3294d8" />
+  <text x="675.5" y="621.0" fill="#3294d8" font-family="DejaVu Sans, sans-serif" font-size="12">robot2</text>
+  <circle cx="700.0" cy="580.5" r="6" fill="#1aaf78" />
+  <text x="708.0" y="575.5" fill="#1aaf78" font-family="DejaVu Sans, sans-serif" font-size="12">robot3</text>
+  <text x="108.50000000000003" y="141.75" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Phòng trò chuyện</text>
+  <text x="602.5" y="141.75" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Phòng TV</text>
+  <text x="105.24999999999997" y="535.0" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Kỹ thuật</text>
+  <text x="329.5" y="535.0" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Thiết bị</text>
+  <text x="248.25" y="600.0" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">0,80 m</text>
+  <text x="303.5" y="427.75" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Hành lang 1,80 m</text>
+  <text x="635.0" y="390.7" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Người trước leader</text>
+  <text x="108.50000000000003" y="390.7" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Người hành lang</text>
+  <text x="420.5" y="138.50000000000003" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Người đứng</text>
+  <text x="628.5" y="691.0" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="13">Xuất phát</text>
+  <text x="50" y="810" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="15">Bắc: +Y ↑     Đông: +X →      Người: ● + hướng nhìn      Vật cản: xám</text>
+  <text x="50" y="840" fill="#213547" font-family="DejaVu Sans, sans-serif" font-size="14">Người và hoạt động được bố trí sẵn; sơ đồ không phải kết quả nhận diện camera.</text>
+</svg>

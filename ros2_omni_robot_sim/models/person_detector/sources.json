@@ -1,0 +1,21 @@
+{
+  "upstream": "https://github.com/AlexeyAB/darknet",
+  "config_commit": "59596d7880f6504768df41d6daa586f5cb2b932f",
+  "files": {
+    "yolov4-tiny.cfg": {
+      "url": "https://raw.githubusercontent.com/AlexeyAB/darknet/59596d7880f6504768df41d6daa586f5cb2b932f/cfg/yolov4-tiny.cfg",
+      "sha256": "f858e3724962eedf3ac44e3b6cb3f0c3d9ed067c306bb831f539c578b924c90e",
+      "bytes": 3231
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/AlexeyAB/darknet/59596d7880f6504768df41d6daa586f5cb2b932f/LICENSE",
+      "sha256": "2021f0b8d6426fbf9a2f0126f1e8a7d3b1d7027c871b9979fa2543b9557000c4",
+      "bytes": 515
+    },
+    "yolov4-tiny.weights": {
+      "url": "https://github.com/AlexeyAB/darknet/releases/download/yolov4/yolov4-tiny.weights",
+      "sha256": "cf9fbfd0f6d4869b35762f56100f50ed05268084078805f0e7989efe5bb8ca87",
+      "bytes": 24251276
+    }
+  }
+}

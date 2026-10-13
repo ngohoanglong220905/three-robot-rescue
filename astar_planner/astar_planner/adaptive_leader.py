@@ -286,8 +286,7 @@ class AdaptiveLeaderFormation:
         else:
             line = self.column.route
             s = self.column.progress[self.leader]
-            first = max(0, next((k for k, d in enumerate(line.distances) if d >= s), len(line.points) - 1) - 1)
-            yield from zip(line.points[first:], line.points[first + 1:])
+            yield from line.remaining_segments(s)
         rows = self.last_rows
         if self.transition is not None:
             first = max(0, next((k for k, t in enumerate(self.transition.times)

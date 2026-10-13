@@ -3,6 +3,7 @@
 
 import bisect
 import heapq
+import json
 import math
 import time
 
@@ -21,6 +22,8 @@ from rclpy.qos import (
     qos_profile_sensor_data,
 )
 from sensor_msgs.msg import LaserScan
+from std_msgs.msg import Header, String
+from std_srvs.srv import Trigger
 from tf2_msgs.msg import TFMessage
 from tf2_ros import TransformBroadcaster
 from visualization_msgs.msg import Marker, MarkerArray
@@ -32,6 +35,7 @@ from .leader_follower import ClearanceRecovery
 from .turnaround import TurnaroundPlanner, leader_route_blockers
 from .peer_safety import minimum_team_distance, peer_motion_free
 from .separation_recovery import SeparationRecoveryPlanner
+from .social_observation import ObservationSweep
 
 
 INF = float('inf')
@@ -278,6 +282,7 @@ class ThreeRobotDStarMPC(Node):
         self.declare_parameter('formation_lookahead', 1.20)
         self.declare_parameter('formation_transition_speed', 0.22)
         self.declare_parameter('formation_follower_speed', 0.22)
+        self.declare_parameter('formation_narrow_follower_speed', 0.12)
         self.declare_parameter('formation_open_hold', 0.60)
         self.declare_parameter('narrow_speed', 0.08)
         self.declare_parameter('require_gazebo_pose', True)
@@ -286,6 +291,10 @@ class ThreeRobotDStarMPC(Node):
         self.declare_parameter('max_angular_speed', 1.0)
         self.declare_parameter('mpc_horizon', 8)
         self.declare_parameter('mpc_dt', 0.15)
+        self.declare_parameter('social_observation_enabled', False)
+        self.declare_parameter('observation_angular_speed', 0.75)
+        self.declare_parameter('observation_dwell', 0.8)
+        self.declare_parameter('observation_analysis_time', 0.0)
 
         self.robot_names = list(self.get_parameter('robot_names').value)
         spawn_values = list(self.get_parameter('spawn_poses').value)
@@ -311,11 +320,25 @@ class ThreeRobotDStarMPC(Node):
         self.formation_lookahead = float(self.get_parameter('formation_lookahead').value)
         self.transition_speed = float(self.get_parameter('formation_transition_speed').value)
         self.follower_speed = float(self.get_parameter('formation_follower_speed').value)
+        self.narrow_follower_speed = float(self.get_parameter('formation_narrow_follower_speed').value)
         self.formation_open_hold = float(self.get_parameter('formation_open_hold').value)
         self.max_linear_speed = float(self.get_parameter('max_linear_speed').value)
         self.max_angular_speed = float(self.get_parameter('max_angular_speed').value)
         self.mpc_horizon = max(2, int(self.get_parameter('mpc_horizon').value))
         self.mpc_dt = float(self.get_parameter('mpc_dt').value)
+        self.observation_enabled = bool(self.get_parameter('social_observation_enabled').value)
+        self.observation_speed = float(self.get_parameter('observation_angular_speed').value)
+        self.observation_dwell = float(self.get_parameter('observation_dwell').value)
+        self.observation_analysis_time = float(self.get_parameter('observation_analysis_time').value)
+        if not 0.0 <= self.observation_analysis_time <= 35.0:
+            raise ValueError('Require observation analysis time between 0 and 35 seconds')
+        if not (0 < self.observation_speed <= self.max_angular_speed and self.observation_dwell >= 0.4):
+            raise ValueError('Require observation speed within angular limit and dwell >= 0.4 s')
+        self.observation = None
+        self.observation_search_id = None
+        self.observation_wall_deadline = INF
+        self.last_observation = -INF
+        self.observation_frame_time = self.observation_frame_wall = -INF
         if not 0.0 < self.robot_radius <= self.inflation_radius:
             raise ValueError('Require 0 < robot_radius <= inflation_radius')
         if self.follow_gap < max(0.40, 2.0 * self.robot_radius + 0.04):
@@ -329,6 +352,9 @@ class ThreeRobotDStarMPC(Node):
             raise ValueError('Require 0 < formation_transition_speed <= max_linear_speed and open hold >= 0')
         if not 0.0 < self.follower_speed <= self.max_linear_speed:
             raise ValueError('Require 0 < formation_follower_speed <= max_linear_speed')
+        if not (float(self.get_parameter('narrow_speed').value)
+                <= self.narrow_follower_speed <= self.max_linear_speed):
+            raise ValueError('Require narrow_speed <= formation_narrow_follower_speed <= max_linear_speed')
         if self.triangle_half_width < 0.35 or self.formation_lookahead < 0.5:
             raise ValueError('Require triangle half-width >= 0.35 m and formation lookahead >= 0.5 m')
 
@@ -361,6 +387,12 @@ class ThreeRobotDStarMPC(Node):
         ]
 
         self.reference_pub = self.create_publisher(PoseArray, '/formation/reference', 1)
+        self.observation_pub = self.create_publisher(String, '/social_navigation/observation_status', 1)
+        self.search_status_pub = self.create_publisher(String, '/social_navigation/search_status', 10)
+        self.create_subscription(String, '/social_navigation/search', self.search_callback, 10)
+        self.create_subscription(PointStamped, '/social_navigation/look_at', self.look_at_callback, 1)
+        self.create_subscription(Header, '/leader/people/observation_stamp', self.observation_frame_callback, 1)
+        self.create_service(Trigger, '/social_navigation/observe', self.observe_callback)
         self.world_pose_sub = self.create_subscription(
             TFMessage, '/gazebo/world_poses', self.world_pose_callback, 1)
         self.tf_broadcaster = TransformBroadcaster(self)
@@ -569,18 +601,22 @@ class ThreeRobotDStarMPC(Node):
         self.dynamic_obstacles = []
         self.assembly_route_cache = {}
 
-        if self.map_geometry != geometry:
+        geometry_changed = self.map_geometry != geometry
+        if geometry_changed:
             self.dstar = None
             self.map_geometry = geometry
-        elif self.dstar is not None:
-            self.dstar.update_blocked(self.blocked)
         self.get_logger().info(
             f'Map received: {self.width} x {self.height}, '
-            f'{self.resolution:.3f} m/cell.'
+            f'{self.resolution:.3f} m/cell.', throttle_duration_sec=5.0
         )
-        if self.goal_xy is not None:
+        if geometry_changed:
+            if self.observation is not None:
+                self.finish_observation('aborted: map coordinate geometry changed')
             self.clear_paths()
-            self.replan_required = True
+            self.replan_required = self.goal_xy is not None
+        # Retain measured trail/progress when an unrelated social region changes.
+        # Reapply live LiDAR returns before checking the route against this map.
+        self.update_dynamic_layer(force=True)
 
     def make_inflated_grid(self, occupancy):
         count = self.width * self.height
@@ -756,9 +792,122 @@ class ThreeRobotDStarMPC(Node):
         self.goal_xy = (x, y)
         self.failed_turn_position = None
         self.failed_turn_peers = None
+        if self.observation is not None:
+            self.finish_observation('cancelled: new goal')
         self.clear_paths()
         self.replan_required = True
         self.plan()
+
+    def start_observation(self, point=None, search_kind=None, search_id=None):
+        now = self.now_seconds()
+        priority_screen = search_kind == 'find_screen'
+        previous = self.observation
+        previous_wall_deadline = self.observation_wall_deadline
+        if not self.observation_enabled:
+            return False, 'Observation is disabled in this launch.'
+        if previous is not None and (not priority_screen or previous.kind == 'find_screen'):
+            return False, 'An observation sweep is already active.'
+        if not priority_screen and now - self.last_observation < 5.0:
+            return False, 'Waiting for the observation cooldown.'
+        if not self.poses_ready() or self.map_msg is None:
+            return False, 'Waiting for fresh robot poses and the planning map.'
+        if (not 0 <= now - self.observation_frame_time < 1.0
+                or time.monotonic() - self.observation_frame_wall > 2.0):
+            return False, 'Waiting for fresh processed camera frames.'
+        actual = tuple(self.get_robot_pose(i)[:3] for i in range(3))
+        if (self.structure is not None or self.maneuver is not None or self.recovering_peers
+                or minimum_team_distance(actual) < 0.40
+                or not all(self.is_free_world(*p[:2]) for p in actual)):
+            return False, 'Recovery / obstacle clearance takes priority over observation.'
+        bearing = None if point is None else math.atan2(
+            point[1] - actual[self.leader_index][1], point[0] - actual[self.leader_index][0])
+        if previous is not None:
+            self.finish_observation('cancelled: prioritizing measured viewing direction')
+        self.clear_paths()
+        self.observation = ObservationSweep(actual, self.leader_index, now,
+                                            self.observation_speed, self.observation_dwell, bearing,
+                                            self.observation_analysis_time, search_kind)
+        self.observation_wall_deadline = (time.monotonic() + ObservationSweep.AUTOMATIC_TIMEOUT
+                                          if self.observation.kind != 'full' else INF)
+        if previous is not None and previous.kind != 'full':
+            self.observation.deadline = min(self.observation.deadline, previous.deadline)
+            self.observation_wall_deadline = min(self.observation_wall_deadline, previous_wall_deadline)
+        self.observation_search_id = search_id
+        self.last_observation = now
+        self.observation_pub.publish(String(data='scanning: ' + self.observation.kind))
+        self.get_logger().info('Leader observing; followers hold their measured positions.')
+        return True, 'Observation started; leader rotates through MPC, followers hold position.'
+
+    def search_status(self, ident, state, reason):
+        self.search_status_pub.publish(String(data=json.dumps(dict(
+            version=1, id=ident, state=state, reason=reason))))
+
+    def search_callback(self, msg):
+        """Correlated, timestamped search requests; all motion remains under MPC."""
+        try:
+            data = json.loads(msg.data)
+            ident, command = data['id'], data['command']
+            if (data.get('version') != 1 or data.get('frame_id') != 'map'
+                    or not isinstance(ident, str) or not 1 <= len(ident) <= 100
+                    or not 0 <= self.now_seconds() - float(data['stamp']) < 1.0):
+                return
+            if command in ('start', 'focus'):
+                point = tuple(float(v) for v in data['point'])
+                if len(point) != 2 or not all(math.isfinite(v) for v in point):
+                    return
+            if command == 'start':
+                kind = data['kind']
+                if kind not in ('inspect_person', 'find_viewers', 'find_screen'):
+                    return
+                if self.observation is not None and self.observation_search_id == ident:
+                    self.search_status(ident, 'scanning', 'Search is already active.')
+                    return
+                accepted, reason = self.start_observation(point, kind, ident)
+                self.search_status(ident, 'scanning' if accepted else 'rejected', reason)
+            elif self.observation is not None and self.observation_search_id == ident:
+                if command == 'focus':
+                    pose = self.get_robot_pose(self.leader_index)
+                    accepted = self.observation.focus_on(math.atan2(point[1] - pose[1], point[0] - pose[0]))
+                    self.search_status(ident, 'focusing' if accepted else 'focus_rejected',
+                                       'Hold a measured person view within the original search deadline.')
+                elif command == 'complete':
+                    self.finish_observation('completed: social evidence acquired')
+                elif command == 'cancel':
+                    self.finish_observation('cancelled: social search reset')
+        except (ValueError, KeyError, TypeError, OverflowError, AttributeError):
+            return
+
+    def look_at_callback(self, msg):
+        stamp = msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
+        point = (msg.point.x, msg.point.y)
+        if (msg.header.frame_id != 'map' or not all(math.isfinite(v) for v in point)
+                or not 0 <= self.now_seconds() - stamp < 1.0):
+            return
+        accepted, reason = self.start_observation(point)
+        if not accepted:
+            self.observation_pub.publish(String(data='rejected: ' + reason))
+
+    def observation_frame_callback(self, msg):
+        stamp = msg.stamp.sec + msg.stamp.nanosec * 1e-9
+        if msg.frame_id == 'map' and 0 <= self.now_seconds() - stamp < 1.0:
+            self.observation_frame_time = stamp
+            self.observation_frame_wall = time.monotonic()
+
+    def observe_callback(self, request, response):
+        response.success, response.message = self.start_observation()
+        return response
+
+    def finish_observation(self, reason):
+        if self.observation_search_id is not None:
+            self.search_status(self.observation_search_id, reason.split(':')[0], reason)
+        self.observation_search_id = None
+        self.observation = None
+        self.observation_wall_deadline = INF
+        self.clear_paths()
+        self.replan_required = self.goal_xy is not None
+        self.last_plan_attempt = -INF
+        self.observation_pub.publish(String(data=reason))
+        self.get_logger().info('Leader observation ' + reason + '; refreshing route from measured poses.')
 
     def turn_space_changed(self, actual):
         return (self.failed_turn_position is None
@@ -827,6 +976,11 @@ class ThreeRobotDStarMPC(Node):
                     if not 0.01 <= distance <= 0.40 or clearance < self.inflation_radius + 0.015:
                         continue
                     if not self.hard_segment_is_free(start, point):
+                        continue
+                    if (self.hard_collision_grid.segment_clearance(
+                            start, point, initial_clearance) < initial_clearance - 1e-9
+                            or any(swept_separation(start, point, p, p) < initial_clearance - 1e-9
+                                   for p in self.dynamic_obstacles)):
                         continue
                     peers = [p for j, p in enumerate(current) if j != index]
                     if any(not peer_motion_free(start, point, peer, peer,
@@ -1010,6 +1164,7 @@ class ThreeRobotDStarMPC(Node):
             half_width=self.triangle_half_width, lookahead=self.formation_lookahead,
             planning_radius=self.inflation_radius, transition_speed=self.transition_speed,
             open_hold=self.formation_open_hold, follower_speed=self.follower_speed,
+            narrow_follower_speed=self.narrow_follower_speed,
             allow_triangle=self.adaptive_formation)
         self.structure = None
         self.maneuver = None
@@ -1193,9 +1348,49 @@ class ThreeRobotDStarMPC(Node):
 
     def publish_reference(self, dt):
         if not self.poses_ready():
+            if self.observation is not None:
+                self.finish_observation('aborted: stale robot poses')
             self.publish_empty_reference()
             return
         actual = tuple(self.get_robot_pose(i)[:3] for i in range(3))
+        if self.observation is not None:
+            if time.monotonic() >= self.observation_wall_deadline:
+                self.finish_observation('aborted: brief camera check reached its wall-time limit')
+                return
+            if (not 0 <= self.now_seconds() - self.observation_frame_time < 2.0
+                    or time.monotonic() - self.observation_frame_wall > 3.0):
+                self.finish_observation('aborted: camera inference is stale')
+                return
+            if (minimum_team_distance(actual) < 0.38
+                    or not all(self.is_free_world(*p[:2]) for p in actual)):
+                self.finish_observation('aborted: clearance changed')
+                return
+            rows = self.observation.rows(actual, self.now_seconds(), self.mpc_horizon, self.mpc_dt)
+            if rows is None:
+                self.finish_observation(self.observation.reason)
+                return
+            self.publish_reference_rows(rows)
+            return
+        if self.structure is None and (self.convoy is not None or self.maneuver is not None):
+            # MPC tracking error can put a robot inside the planning buffer
+            # while its physical footprint is still clear. A whole-team sweep
+            # then rejects every row, even steps of an unobstructed leader.
+            # Recover the measured pose now; waiting for a new goal deadlocks.
+            outside_buffer = [i for i, pose in enumerate(actual)
+                              if not self.is_free_world(*pose[:2])]
+            if outside_buffer:
+                details = ', '.join(
+                    f'{self.robot_names[i]}={self.clearance_world(actual[i]):.3f} m'
+                    for i in outside_buffer)
+                self.get_logger().warning(
+                    f'Measured obstacle clearance below {self.inflation_radius:.2f} m '
+                    f'({details}); recovering wall clearance before resuming the route.',
+                    throttle_duration_sec=3.0)
+                self.clear_paths()
+                self.replan_required = True
+                self.last_plan_attempt = self.now_seconds()
+                if not self.start_clearance_recovery(actual):
+                    return
         if (not self.recovering_peers and self.structure is None
                 and minimum_team_distance(actual) < 0.37
                 and all(self.is_free_world(*pose[:2]) for pose in actual)):
@@ -1280,6 +1475,9 @@ class ThreeRobotDStarMPC(Node):
         else:
             self.publish_empty_reference()
             return
+        self.publish_reference_rows(rows)
+
+    def publish_reference_rows(self, rows):
         msg = PoseArray()
         msg.header.frame_id = 'map'
         msg.header.stamp = self.get_clock().now().to_msg()
@@ -1291,9 +1489,9 @@ class ThreeRobotDStarMPC(Node):
                 msg.poses.append(pose)
         self.reference_pub.publish(msg)
 
-    def update_dynamic_layer(self):
+    def update_dynamic_layer(self, force=False):
         now = self.now_seconds()
-        if self.map_msg is None or now - self.last_dynamic_update < 0.5:
+        if self.map_msg is None or (not force and now - self.last_dynamic_update < 0.5):
             return
         self.last_dynamic_update = now
         dynamic = set()
@@ -1331,35 +1529,43 @@ class ThreeRobotDStarMPC(Node):
             new_blocked[index] = True
         geometry_changed = dynamic_points != self.dynamic_obstacles
         self.dynamic_obstacles = dynamic_points
-        if new_blocked != self.blocked or geometry_changed:
+        if force or new_blocked != self.blocked or geometry_changed:
             self.assembly_route_cache = {}
             self.blocked = new_blocked
             if self.dstar is not None:
                 self.dstar.update_blocked(new_blocked.copy())
-            if self.maneuver is not None:
-                if any(not self.hard_segment_is_free(a, b)
-                       for a, b in self.maneuver.remaining_segments()):
-                    self.clear_paths()
-                    self.replan_required = self.goal_xy is not None
-            if self.convoy is not None:
-                if any(not self.hard_segment_is_free(a, b)
-                       for a, b in self.convoy.remaining_segments()):
-                    self.clear_paths()
-                    self.replan_required = self.goal_xy is not None
-            # Preserve a recovery unless a changed obstacle obstructs one of
-            # its remaining swept movements.
-            if self.structure is not None:
-                first = max(0, bisect.bisect_left(self.structure.times, self.phase) - 1)
-                rows = self.structure.rows[first:]
-                if any(not self.structure.transition_free(a, b)
-                       for a, b in zip(rows, rows[1:])):
-                    self.clear_paths()
-                    self.replan_required = self.goal_xy is not None
+            self.invalidate_blocked_motion()
+
+    def invalidate_blocked_motion(self):
+        """Only changed obstacles intersecting remaining motion discard progress."""
+        blocked = False
+        for motion in (self.maneuver, self.convoy):
+            if motion is not None and any(not self.hard_segment_is_free(a, b)
+                                          for a, b in motion.remaining_segments()):
+                blocked = True
+        if self.convoy is not None and self.poses_ready():
+            actual = tuple(self.get_robot_pose(i)[:3] for i in range(3))
+            blocked |= any(not self.hard_segment_is_free(p, p) for p in actual)
+            if self.convoy.last_rows:
+                blocked |= any(not self.hard_segment_is_free(a, b)
+                               for a, b in zip(actual, self.convoy.last_rows[0]))
+        # Recovery segments have their own monotonic clearance checks.
+        if self.structure is not None:
+            first = max(0, bisect.bisect_left(self.structure.times, self.phase) - 1)
+            rows = self.structure.rows[first:]
+            blocked |= any(not self.structure.transition_free(a, b) for a, b in zip(rows, rows[1:]))
+        if blocked:
+            self.clear_paths()
+            self.replan_required = self.goal_xy is not None
 
     def control_tick(self):
         now = self.now_seconds()
         dt = 0.0 if self.last_tick is None else clamp(now - self.last_tick, 0.0, 0.2)
         if self.last_tick is not None and now < self.last_tick:
+            if self.observation is not None:
+                self.finish_observation('aborted: clock reset')
+            self.last_observation = -INF
+            self.observation_frame_time = self.observation_frame_wall = -INF
             self.clear_paths()
             self.robot_state = [None, None, None]
             self.pose_times = [-INF, -INF, -INF]
@@ -1373,7 +1579,7 @@ class ThreeRobotDStarMPC(Node):
             self.replan_required = self.goal_xy is not None
         self.last_tick = now
         self.update_dynamic_layer()
-        if self.replan_required and now - self.last_plan_attempt > 1.0:
+        if self.observation is None and self.replan_required and now - self.last_plan_attempt > 1.0:
             self.plan()
         self.publish_team_states()
         self.publish_reference(dt)
@@ -1455,7 +1661,9 @@ class ThreeRobotDStarMPC(Node):
                 rank = self.convoy_order.index(index)
                 label.text = f'{name} (leader)' if rank == 0 else f'{name} (follower {rank})'
                 if rank == 0:
-                    if self.maneuver is not None:
+                    if self.observation is not None:
+                        label.text += f'\nobserving ({self.observation.index + 1}/{len(self.observation.targets)})'
+                    elif self.maneuver is not None:
                         label.text += '\n' + self.maneuver.mode
                     elif self.convoy is not None:
                         label.text += '\n' + self.convoy.mode
@@ -1596,8 +1804,15 @@ class DistributedRobotMPC(Node):
     def is_free(self, x, y):
         return self.hard_collision_grid is not None and self.hard_collision_grid.point_free((x, y))
 
-    def segment_free(self, a, b):
-        return self.hard_collision_grid is not None and self.hard_collision_grid.segment_free(a, b)
+    def segment_free(self, a, b, minimum_clearance=None):
+        if self.hard_collision_grid is None:
+            return False
+        if minimum_clearance is None:
+            minimum_clearance = max(self.robot_radius, min(
+                self.inflation_radius,
+                self.hard_collision_grid.clearance(a, self.inflation_radius)))
+        return (self.hard_collision_grid.segment_clearance(a, b, minimum_clearance)
+                >= minimum_clearance - 1e-9)
 
     def team_state_callback(self, msg):
         if msg.header.frame_id != 'map' or len(msg.poses) != 3:
@@ -1709,6 +1924,15 @@ class DistributedRobotMPC(Node):
             feed_x, feed_y = (tx - previous_ref[0]) / self.mpc_dt, (ty - previous_ref[1]) / self.mpc_dt
             expanded = []
             for px, py, pyaw, old_cost, first, previous, trajectory in beam:
+                # Use the coordinator's planning margin during normal motion.
+                # If tracking/noisy observations already put the measured
+                # robot inside that margin, permit only sweeps that preserve
+                # or increase its clearance, never crossing the footprint.
+                clearance_before = min(
+                    [self.hard_collision_grid.clearance((px, py), self.inflation_radius)]
+                    + [math.hypot(px - ox, py - oy) for ox, oy in obstacles])
+                minimum_clearance = max(self.robot_radius, min(
+                    self.inflation_radius, clearance_before))
                 # Continuous tracking candidates remove the old full-speed/zero
                 # quantization that caused oscillation near formation slots.
                 wx, wy = feed_x + 2.0 * (tx - px), feed_y + 2.0 * (ty - py)
@@ -1752,9 +1976,10 @@ class DistributedRobotMPC(Node):
                     ny = py + (vx * math.sin(mid_yaw) + vy * math.cos(mid_yaw)) * self.mpc_dt
                     nyaw = normalize_angle(pyaw + spin * self.mpc_dt)
                     before, after = (px, py), (nx, ny)
-                    if not self.segment_free(before, after):
+                    if not self.segment_free(before, after, minimum_clearance):
                         continue
-                    if any(swept_separation(before, after, o, o) < self.robot_radius for o in obstacles):
+                    if any(swept_separation(before, after, o, o) < minimum_clearance - 1e-9
+                           for o in obstacles):
                         continue
                     if any(not peer_motion_free(before, after, predictions[step - 1][i],
                                                 predictions[step][i],

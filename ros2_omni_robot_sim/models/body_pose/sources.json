@@ -1,0 +1,12 @@
+{
+  "graph_opt.pb": {
+    "url": "https://raw.githubusercontent.com/quanhua92/human-pose-estimation-opencv/5f86f77242378d5343c6f8a589e40d21c8537b4e/graph_opt.pb",
+    "sha256": "51f84ea82b3d0143dd4cf362e018c125e832c64771908ee8766fbd8b0328008d",
+    "bytes": 7804434
+  },
+  "LICENSE": {
+    "url": "https://raw.githubusercontent.com/quanhua92/human-pose-estimation-opencv/5f86f77242378d5343c6f8a589e40d21c8537b4e/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "bytes": 11357
+  }
+}

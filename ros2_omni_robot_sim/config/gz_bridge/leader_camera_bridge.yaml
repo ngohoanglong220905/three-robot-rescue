@@ -1,0 +1,27 @@
+# One leader camera per world. Lazy bridges avoid copying unused depth images.
+- ros_topic_name: /leader/camera/image_raw
+  gz_topic_name: /leader/camera/image
+  ros_type_name: sensor_msgs/msg/Image
+  gz_type_name: ignition.msgs.Image
+  direction: GZ_TO_ROS
+  lazy: true
+  subscriber_queue: 2
+  publisher_queue: 2
+
+- ros_topic_name: /leader/camera/depth/image_raw
+  gz_topic_name: /leader/camera/depth_image
+  ros_type_name: sensor_msgs/msg/Image
+  gz_type_name: ignition.msgs.Image
+  direction: GZ_TO_ROS
+  lazy: true
+  subscriber_queue: 2
+  publisher_queue: 2
+
+- ros_topic_name: /leader/camera/camera_info
+  gz_topic_name: /leader/camera/camera_info
+  ros_type_name: sensor_msgs/msg/CameraInfo
+  gz_type_name: ignition.msgs.CameraInfo
+  direction: GZ_TO_ROS
+  lazy: true
+  subscriber_queue: 2
+  publisher_queue: 2

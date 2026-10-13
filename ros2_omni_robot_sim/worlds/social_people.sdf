@@ -1,0 +1,926 @@
+<?xml version='1.0' encoding='utf-8'?>
+<sdf version="1.8">
+  <world name="social_people">
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+    <plugin filename="ignition-gazebo-physics-system" name="gz::sim::systems::Physics" />
+    <plugin filename="ignition-gazebo-user-commands-system" name="gz::sim::systems::UserCommands" />
+    <plugin filename="ignition-gazebo-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster" />
+    <plugin filename="ignition-gazebo-contact-system" name="gz::sim::systems::Contact" />
+    <plugin filename="ignition-gazebo-imu-system" name="gz::sim::systems::Imu" />
+    <plugin filename="libgz-sim-sensors-system.so" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <scene>
+      <ambient>0.65 0.65 0.65 1</ambient>
+      <background>0.16 0.19 0.23 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <light name="sun" type="directional">
+      <pose>0.000000 0.000000 12.000000 0.000000 0.000000 0.000000</pose>
+      <diffuse>0.85 0.85 0.80 1</diffuse>
+      <specular>0.12 0.12 0.12 1</specular>
+      <direction>-0.25 0.15 -0.95</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+    <model name="ground_plane">
+      <static>true</static>
+      <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>16 14</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>16 14</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.770000 0.790000 0.800000 1.000000</ambient>
+            <diffuse>0.770000 0.790000 0.800000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <actor name="pair_a">
+      <pose>2.650000 0.450000 1.066000 0.000000 0.000000 0.904827</pose>
+      <skin>
+        <filename>model://person_talking/talk_a_inplace.dae</filename>
+      </skin>
+      <animation name="talk">
+        <filename>model://person_talking/talk_a_inplace.dae</filename>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="talk" tension="1">
+          <waypoint>
+            <time>0</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+          <waypoint>
+            <time>23.91666338</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <model name="pair_a_contact">
+      <static>true</static>
+      <pose>2.650000 0.450000 0.000000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="body_contact">
+          <pose>0.000000 0.000000 0.870000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.74</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <actor name="pair_b">
+      <pose>4.050000 0.450000 1.080700 0.000000 0.000000 -0.904827</pose>
+      <skin>
+        <filename>model://person_talking/talk_b_inplace.dae</filename>
+      </skin>
+      <animation name="talk">
+        <filename>model://person_talking/talk_b_inplace.dae</filename>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="talk" tension="1">
+          <waypoint>
+            <time>0</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+          <waypoint>
+            <time>23.91666338</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <model name="pair_b_contact">
+      <static>true</static>
+      <pose>4.050000 0.450000 0.000000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="body_contact">
+          <pose>0.000000 0.000000 0.870000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.74</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <actor name="group_a">
+      <pose>-3.400000 1.500000 1.080700 0.000000 0.000000 1.993650</pose>
+      <skin>
+        <filename>model://person_talking/talk_b_inplace.dae</filename>
+      </skin>
+      <animation name="talk">
+        <filename>model://person_talking/talk_b_inplace.dae</filename>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="talk" tension="1">
+          <waypoint>
+            <time>0</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+          <waypoint>
+            <time>23.91666338</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <model name="group_a_contact">
+      <static>true</static>
+      <pose>-3.400000 1.500000 0.000000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="body_contact">
+          <pose>0.000000 0.000000 0.870000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.74</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <actor name="group_b">
+      <pose>-1.400000 1.500000 1.066000 0.000000 0.000000 4.289535</pose>
+      <skin>
+        <filename>model://person_talking/talk_a_inplace.dae</filename>
+      </skin>
+      <animation name="talk">
+        <filename>model://person_talking/talk_a_inplace.dae</filename>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="talk" tension="1">
+          <waypoint>
+            <time>0</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+          <waypoint>
+            <time>23.91666338</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <model name="group_b_contact">
+      <static>true</static>
+      <pose>-1.400000 1.500000 0.000000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="body_contact">
+          <pose>0.000000 0.000000 0.870000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.74</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <actor name="group_c">
+      <pose>-2.400000 2.800000 1.080700 0.000000 0.000000 0.000000</pose>
+      <skin>
+        <filename>model://person_talking/talk_b_inplace.dae</filename>
+      </skin>
+      <animation name="talk">
+        <filename>model://person_talking/talk_b_inplace.dae</filename>
+        <interpolate_x>false</interpolate_x>
+      </animation>
+      <script>
+        <loop>true</loop>
+        <auto_start>true</auto_start>
+        <trajectory id="0" type="talk" tension="1">
+          <waypoint>
+            <time>0</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+          <waypoint>
+            <time>23.91666338</time>
+            <pose>0.000000 0.000000 0.000000 0.000000 0.000000 0.000000</pose>
+          </waypoint>
+        </trajectory>
+      </script>
+    </actor>
+    <model name="group_c_contact">
+      <static>true</static>
+      <pose>-2.400000 2.800000 0.000000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="body_contact">
+          <pose>0.000000 0.000000 0.870000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.3</radius>
+              <length>1.74</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="standing_a">
+      <static>true</static>
+      <pose>-3.500000 -2.000000 0.000000 0.000000 0.000000 -0.300000</pose>
+      <link name="link">
+        <visual name="textured_person">
+          <pose>0.000000 0.000000 0.010000 0.000000 0.000000 1.570796</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_standing/meshes/standing.dae</uri>
+              <scale>0.92 0.92 0.92</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="body_envelope">
+          <pose>0.000000 0.000000 0.890000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.32</radius>
+              <length>1.78</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="standing_b">
+      <static>true</static>
+      <pose>0.000000 3.500000 0.000000 0.000000 0.000000 -1.570796</pose>
+      <link name="link">
+        <visual name="textured_person">
+          <pose>0.000000 0.000000 0.010000 0.000000 0.000000 1.570796</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_standing/meshes/standing.dae</uri>
+              <scale>0.92 0.92 0.92</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="body_envelope">
+          <pose>0.000000 0.000000 0.890000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.32</radius>
+              <length>1.78</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_seat">
+      <static>true</static>
+      <pose>-0.993518 -3.820709 0.370000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.650000 0.720000 0.100000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.650000 0.720000 0.100000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_back">
+      <static>true</static>
+      <pose>-1.073468 -4.181968 0.530000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.120000 0.720000 0.860000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.120000 0.720000 0.860000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_arm_-1">
+      <static>true</static>
+      <pose>-0.634420 -3.910423 0.610000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_leg_-1_-1">
+      <static>true</static>
+      <pose>-0.776314 -4.135069 0.160000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_leg_-1_1">
+      <static>true</static>
+      <pose>-0.676916 -3.685937 0.160000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_arm_1">
+      <static>true</static>
+      <pose>-1.356937 -3.750522 0.610000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_leg_1_-1">
+      <static>true</static>
+      <pose>-1.323084 -4.014063 0.160000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_a_leg_1_1">
+      <static>true</static>
+      <pose>-1.223686 -3.564931 0.160000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_viewer_a">
+      <static>true</static>
+      <pose>-1.000000 -3.850000 0.000000 0.000000 0.000000 1.352995</pose>
+      <link name="link">
+        <visual name="textured_person">
+          <pose>0.000000 0.000000 0.010000 0.000000 0.000000 1.570796</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_standing/meshes/seated.dae</uri>
+              <scale>0.92 0.92 0.92</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="body_envelope">
+          <pose>0.180000 0.000000 0.700000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.62 1.40</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_seat">
+      <static>true</static>
+      <pose>0.343518 -3.820709 0.370000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.650000 0.720000 0.100000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.650000 0.720000 0.100000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_back">
+      <static>true</static>
+      <pose>0.423468 -4.181968 0.530000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.120000 0.720000 0.860000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.120000 0.720000 0.860000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_arm_-1">
+      <static>true</static>
+      <pose>0.706937 -3.750522 0.610000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_leg_-1_-1">
+      <static>true</static>
+      <pose>0.673084 -4.014063 0.160000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_leg_-1_1">
+      <static>true</static>
+      <pose>0.573686 -3.564931 0.160000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_arm_1">
+      <static>true</static>
+      <pose>-0.015580 -3.910423 0.610000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.680000 0.100000 0.120000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_leg_1_-1">
+      <static>true</static>
+      <pose>0.126314 -4.135069 0.160000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="chair_tv_viewer_b_leg_1_1">
+      <static>true</static>
+      <pose>0.026916 -3.685937 0.160000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.080000 0.080000 0.320000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.200000 0.340000 0.450000 1.000000</ambient>
+            <diffuse>0.200000 0.340000 0.450000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_viewer_b">
+      <static>true</static>
+      <pose>0.350000 -3.850000 0.000000 0.000000 0.000000 1.788597</pose>
+      <link name="link">
+        <visual name="textured_person">
+          <pose>0.000000 0.000000 0.010000 0.000000 0.000000 1.570796</pose>
+          <geometry>
+            <mesh>
+              <uri>model://person_standing/meshes/seated.dae</uri>
+              <scale>0.92 0.92 0.92</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="body_envelope">
+          <pose>0.180000 0.000000 0.700000 0.000000 0.000000 0.000000</pose>
+          <geometry>
+            <box>
+              <size>0.88 0.62 1.40</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+    <model name="tv_console">
+      <static>true</static>
+      <pose>-0.325000 -0.800000 0.275000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.700000 0.450000 0.550000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.700000 0.450000 0.550000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.320000 0.230000 0.160000 1.000000</ambient>
+            <diffuse>0.320000 0.230000 0.160000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_stand">
+      <static>true</static>
+      <pose>-0.325000 -0.800000 0.640000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.180000 0.160000 0.180000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.180000 0.160000 0.180000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.040000 0.050000 0.060000 1.000000</ambient>
+            <diffuse>0.040000 0.050000 0.060000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_frame">
+      <static>true</static>
+      <pose>-0.325000 -0.800000 1.230000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1.700000 0.100000 1.020000</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.700000 0.100000 1.020000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.025000 0.030000 0.035000 1.000000</ambient>
+            <diffuse>0.025000 0.030000 0.035000 1.000000</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_screen">
+      <static>true</static>
+      <pose>-0.325000 -0.857000 1.230000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.540000 0.014000 0.860000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.060000 0.240000 0.380000 1.000000</ambient>
+            <diffuse>0.060000 0.240000 0.380000 1.000000</diffuse>
+            <emissive>0.060000 0.240000 0.380000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_horizon">
+      <static>true</static>
+      <pose>-0.325000 -0.867000 0.980000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1.460000 0.006000 0.260000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.220000 0.430000 0.250000 1.000000</ambient>
+            <diffuse>0.220000 0.430000 0.250000 1.000000</diffuse>
+            <emissive>0.220000 0.430000 0.250000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_graph_0">
+      <static>true</static>
+      <pose>-0.875000 -0.872000 1.170000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.160000 0.004000 0.180000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.750000 0.850000 0.550000 1.000000</ambient>
+            <diffuse>0.750000 0.850000 0.550000 1.000000</diffuse>
+            <emissive>0.750000 0.850000 0.550000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_graph_1">
+      <static>true</static>
+      <pose>-0.615000 -0.872000 1.230000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.160000 0.004000 0.300000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.750000 0.850000 0.550000 1.000000</ambient>
+            <diffuse>0.750000 0.850000 0.550000 1.000000</diffuse>
+            <emissive>0.750000 0.850000 0.550000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_graph_2">
+      <static>true</static>
+      <pose>-0.355000 -0.872000 1.195000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.160000 0.004000 0.230000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.750000 0.850000 0.550000 1.000000</ambient>
+            <diffuse>0.750000 0.850000 0.550000 1.000000</diffuse>
+            <emissive>0.750000 0.850000 0.550000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_graph_3">
+      <static>true</static>
+      <pose>-0.095000 -0.872000 1.255000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.160000 0.004000 0.350000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.750000 0.850000 0.550000 1.000000</ambient>
+            <diffuse>0.750000 0.850000 0.550000 1.000000</diffuse>
+            <emissive>0.750000 0.850000 0.550000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name="tv_graph_4">
+      <static>true</static>
+      <pose>0.165000 -0.872000 1.185000 0.000000 0.000000 0.000000</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.160000 0.004000 0.210000</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.750000 0.850000 0.550000 1.000000</ambient>
+            <diffuse>0.750000 0.850000 0.550000 1.000000</diffuse>
+            <emissive>0.750000 0.850000 0.550000 1.000000</emissive>
+          </material>
+        </visual>
+      </link>
+    </model>
+  </world>
+</sdf>

@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- One RGB-D renderer, mounted inside the existing 0.15 m footprint.
+       Local link names are prefixed once by robot_state_publisher. -->
+  <xacro:macro name="leader_camera" params="parent prefix width height rate">
+    <link name="leader_camera_mount">
+      <inertial>
+        <origin xyz="-0.012 0 0.085"/>
+        <mass value="0.10"/>
+        <inertia ixx="0.00030" ixy="0" ixz="0" iyy="0.00030" iyz="0" izz="0.00003"/>
+      </inertial>
+      <visual name="mount_foot">
+        <origin xyz="0 0 0.005"/>
+        <geometry><box size="0.07 0.07 0.01"/></geometry>
+        <material name="camera_graphite"><color rgba="0.07 0.09 0.12 1"/></material>
+      </visual>
+      <visual name="mast">
+        <origin xyz="-0.012 0 0.085"/>
+        <geometry><box size="0.022 0.032 0.16"/></geometry>
+        <material name="camera_graphite"/>
+      </visual>
+      <visual name="mast_accent">
+        <origin xyz="0 0 0.088"/>
+        <geometry><box size="0.002 0.016 0.13"/></geometry>
+        <material name="camera_orange"><color rgba="1.0 0.32 0.04 1"/></material>
+      </visual>
+      <visual name="lidar_support">
+        <origin xyz="-0.030 0 0.197"/>
+        <geometry><box size="0.018 0.020 0.074"/></geometry>
+        <material name="camera_graphite"/>
+      </visual>
+      <visual name="lidar_platform">
+        <origin xyz="-0.012 0 0.234"/>
+        <geometry><box size="0.056 0.048 0.006"/></geometry>
+        <material name="camera_graphite"/>
+      </visual>
+      <collision name="mast">
+        <origin xyz="-0.012 0 0.085"/>
+        <geometry><box size="0.022 0.032 0.16"/></geometry>
+      </collision>
+      <collision name="lidar_support">
+        <origin xyz="-0.030 0 0.197"/>
+        <geometry><box size="0.018 0.020 0.074"/></geometry>
+      </collision>
+    </link>
+    <joint name="leader_camera_mount_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="leader_camera_mount"/>
+      <origin xyz="0 0 0.083"/>
+    </joint>
+
+    <link name="leader_camera_link">
+      <inertial>
+        <mass value="0.20"/>
+        <inertia ixx="0.00025" ixy="0" ixz="0" iyy="0.00007" iyz="0" izz="0.00026"/>
+      </inertial>
+      <visual name="camera_housing">
+        <geometry><box size="0.046 0.112 0.043"/></geometry>
+        <material name="camera_orange"/>
+      </visual>
+      <visual name="camera_visor">
+        <origin xyz="0.024 0 0"/>
+        <geometry><box size="0.004 0.100 0.033"/></geometry>
+        <material name="camera_graphite"/>
+      </visual>
+      <visual name="camera_top_cap">
+        <origin xyz="0 0 0.023"/>
+        <geometry><box size="0.052 0.116 0.004"/></geometry>
+        <material name="camera_graphite"/>
+      </visual>
+      <xacro:camera_lens y="-0.034" name="depth_left"/>
+      <xacro:camera_lens y="0" name="rgb"/>
+      <xacro:camera_lens y="0.034" name="depth_right"/>
+      <visual name="status_strip">
+        <origin xyz="0.027 0 0.014"/>
+        <geometry><box size="0.002 0.017 0.002"/></geometry>
+        <material name="camera_status"><color rgba="0.05 0.95 0.85 1"/></material>
+      </visual>
+      <collision>
+        <geometry><box size="0.056 0.116 0.050"/></geometry>
+      </collision>
+    </link>
+    <joint name="leader_camera_joint" type="fixed">
+      <parent link="leader_camera_mount"/>
+      <child link="leader_camera_link"/>
+      <!-- Look 10 degrees upwards: torso/head coverage from a small chassis. -->
+      <origin xyz="0.018 0 0.175" rpy="0 -0.1745329252 0"/>
+    </joint>
+
+    <link name="leader_camera_frame"/>
+    <joint name="leader_camera_frame_joint" type="fixed">
+      <parent link="leader_camera_link"/>
+      <child link="leader_camera_frame"/>
+      <!-- Place the sensor in front of the lens cover, avoiding self-occlusion. -->
+      <origin xyz="0.032 0 0"/>
+    </joint>
+    <link name="leader_camera_optical_frame"/>
+    <joint name="leader_camera_optical_joint" type="fixed">
+      <parent link="leader_camera_frame"/>
+      <child link="leader_camera_optical_frame"/>
+      <!-- REP-103 optical convention: +Z forward, +X right, +Y down. -->
+      <origin rpy="${-pi/2} 0 ${-pi/2}"/>
+    </joint>
+    <gazebo reference="leader_camera_frame">
+      <sensor name="${prefix}_leader_rgbd" type="rgbd_camera">
+        <topic>/leader/camera</topic>
+        <always_on>true</always_on>
+        <update_rate>${rate}</update_rate>
+        <visualize>false</visualize>
+        <camera>
+          <optical_frame_id>${prefix}/leader_camera_optical_frame</optical_frame_id>
+          <camera_info_topic>/leader/camera/camera_info</camera_info_topic>
+          <horizontal_fov>1.5184364492</horizontal_fov>
+          <image>
+            <width>${width}</width>
+            <height>${height}</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip><near>0.15</near><far>8.0</far></clip>
+        </camera>
+      </sensor>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- The three lenses are cosmetic; depth comes from one aligned RGB-D sensor. -->
+  <xacro:macro name="camera_lens" params="y name">
+    <visual name="${name}_rim">
+      <origin xyz="0.027 ${y} 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="0.010" length="0.003"/></geometry>
+      <material name="camera_silver"><color rgba="0.65 0.72 0.77 1"/></material>
+    </visual>
+    <visual name="${name}_glass">
+      <origin xyz="0.029 ${y} 0" rpy="0 ${pi/2} 0"/>
+      <geometry><cylinder radius="0.0075" length="0.002"/></geometry>
+      <material name="camera_glass"><color rgba="0.025 0.12 0.20 1"/></material>
+    </visual>
+  </xacro:macro>
+</robot>
